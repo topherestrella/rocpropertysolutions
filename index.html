@@ -23,12 +23,15 @@
     .logo img {
       height: 70px;
     }
-    .logo h1 {
-      font-size: 2em;
-      font-weight: bold;
+    .logo a {
+      display: inline-block;
+    }
+    .site-title {
+      text-align: center;
+      flex-grow: 1;
       color: #ccc;
       font-family: Impact, Charcoal, sans-serif;
-      letter-spacing: 1px;
+      font-size: 2em;
     }
     nav a {
       margin-left: 25px;
@@ -68,18 +71,18 @@
     .split-section {
       display: flex;
       flex-wrap: wrap;
-      padding: 60px 40px;
+      padding: 60px 60px;
       gap: 40px;
       align-items: center;
     }
     .split-section img {
       width: 100%;
-      max-width: 500px;
+      max-width: 480px;
       border-radius: 10px;
     }
     .split-text {
       flex: 1;
-      font-size: 1.1em;
+      font-size: 1.15em;
       line-height: 1.6;
     }
     .split-text h2 {
@@ -104,28 +107,19 @@
       color: #555;
     }
 
-    .booking {
-      padding: 60px 20px;
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 10px;
-    }
-
-    .feature-section {
+    .why-concrete {
+      background: #e9f1f5;
       padding: 60px 40px;
     }
 
-    .feature-section h2 {
+    .why-concrete h2 {
       font-size: 2em;
       color: #004466;
       text-align: center;
       margin-bottom: 30px;
     }
 
-    .feature-section ul {
+    .why-concrete ul {
       max-width: 900px;
       margin: auto;
       font-size: 1.1em;
@@ -151,6 +145,25 @@
       font-size: 1.1em;
       line-height: 1.8;
       padding-left: 20px;
+    }
+
+    .booking {
+      background: #dbe4ec;
+      padding: 60px 20px;
+    }
+
+    .booking h2 {
+      text-align: center;
+      font-size: 1.8em;
+      color: #003344;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 10px;
     }
 
     footer {
@@ -198,7 +211,7 @@
 
     .footer-logo img {
       max-width: 200px;
-      opacity: 0.7;
+      opacity: 0.85;
     }
   </style>
 </head>
@@ -206,9 +219,9 @@
 
 <header>
   <div class="logo">
-    <img src="Image (14).jpg" alt="ROC Gradient Logo"/>
-    <h1>ROC Property Solutions</h1>
+    <a href="/"><img src="Image (14).jpg" alt="ROC Gradient Logo"/></a>
   </div>
+  <div class="site-title">ROC Property Solutions</div>
   <nav>
     <a href="#">Services</a>
     <a href="#">Our Process</a>
@@ -222,14 +235,14 @@
   <img src="1d7c00a9-c31f-4b40-aafa-ed0b9d13cd9d.png" alt="Fence with Plants"/>
   <div class="hero-text">
     <h1>Concrete Fencing That’s Built to Last</h1>
-    <p>Stronger than wood. Smarter than vinyl. Rhino Rock fencing gives you the perfect blend of elegance and endurance.</p>
+    <p>Stronger than wood. Smarter than vinyl. Rhino Rock fencing gives you the perfect blend of elegance and endurance, trusted for both homes and commercial spaces.</p>
   </div>
 </section>
 
 <section class="split-section">
   <div class="split-text">
     <h2>Why Choose Rhino Rock?</h2>
-    <p>Rhino Rock fencing offers unparalleled durability, aesthetic appeal, and long-term savings. It's ideal for residential or commercial properties that want low-maintenance, high-impact fencing that doesn’t compromise on looks.</p>
+    <p>Rhino Rock fencing offers unmatched durability and beauty. It’s perfect for property owners looking for security, sound privacy, and a premium aesthetic without the hassle of ongoing maintenance.</p>
   </div>
   <img src="458d2b4c-7df2-4ff0-baa0-039787636f6b.jpg" alt="Flyer"/>
 </section>
@@ -238,7 +251,7 @@
   <img src="05eaf636-9702-4152-bfa1-722c77c0d0ed.png" alt="Fence panel"/>
   <div class="split-text">
     <h2>Effortless Curb Appeal</h2>
-    <p>Designed to impress. Rhino Rock panels elevate your property's appearance while standing up to nature's toughest challenges.</p>
+    <p>Each Rhino Rock panel is designed to add elegance to your property. The clean stone-like texture complements landscaping beautifully, creating a strong first impression.</p>
   </div>
 </section>
 
@@ -247,29 +260,29 @@
   <p>Co-founder Billie admiring the Rhino Rock fencing</p>
 </section>
 
-<section class="feature-section">
+<section class="why-concrete">
   <h2>Why Concrete Fencing?</h2>
   <ul>
-    <li>✔ Extremely durable and long-lasting</li>
-    <li>✔ Resistant to fire, pests, weather, and decay</li>
-    <li>✔ Provides sound privacy and security</li>
-    <li>✔ Easy to maintain — occasional rinsing is all it takes</li>
-    <li>✔ Modern, customizable, and HOA-friendly</li>
+    <li>Extremely durable and long-lasting — 30 to 50 years</li>
+    <li>Resistant to fire, pests, weather, and rot</li>
+    <li>Minimal upkeep required — occasional rinse is enough</li>
+    <li>Sound-reducing and added property privacy</li>
+    <li>Modern and HOA-friendly appearance</li>
   </ul>
 </section>
 
 <section class="options">
   <h2>Fence Heights & Customization Options</h2>
   <ul>
-    <li>🏗 Available in 4ft, 6ft, and 8ft heights</li>
-    <li>🚪 Optional custom gates for security and style</li>
-    <li>💡 Add lighting or motion-sensor fixtures</li>
-    <li>🎨 Choose from color tones to match your aesthetic</li>
+    <li>Available in 4ft, 6ft, and 8ft heights</li>
+    <li>Custom gate designs to match your property</li>
+    <li>Optional lighting and motion sensor add-ons</li>
+    <li>Choose from a variety of earth-tone color finishes</li>
   </ul>
 </section>
 
 <section class="booking">
-  <h2 style="text-align:center; margin-bottom:20px;">Book Your Free On-Site Visit</h2>
+  <h2>Book Your Free On-Site Visit</h2>
   <iframe src="https://outlook.office.com/owa/calendar/RocPropertySolutions@ROCPropertySolutions.com/bookings/"></iframe>
 </section>
 
