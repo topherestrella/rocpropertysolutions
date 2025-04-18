@@ -8,13 +8,14 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', sans-serif; color: #222; background: #fff; }
     header {
-      background: #2f2f2f;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 40px;
-      flex-wrap: wrap;
-    }
+  background: #2f2f2f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+  position: relative;
+}
     .logo {
       display: flex;
       align-items: center;
@@ -26,13 +27,18 @@
     .logo a {
       display: inline-block;
     }
-    .site-title {
-      text-align: center;
-      flex-grow: 1;
-      color: #ccc;
-      font-family: Impact, Charcoal, sans-serif;
-      font-size: 2em;
-    }
+  .site-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 2em;
+  white-space: nowrap;
+}
+
     nav a {
       margin-left: 25px;
       color: #eee;
