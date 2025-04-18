@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +8,30 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', sans-serif; color: #222; background: #fff; }
     header {
-      background: #333;
+      background: #2f2f2f;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 20px 40px;
+      flex-wrap: wrap;
     }
-    .logo img { height: 50px; }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo img {
+      height: 70px;
+    }
+    .logo h1 {
+      font-size: 2em;
+      font-weight: bold;
+      color: #ccc;
+      font-family: Impact, Charcoal, sans-serif;
+      letter-spacing: 1px;
+    }
     nav a {
-      margin-left: 30px;
+      margin-left: 25px;
       color: #eee;
       text-decoration: none;
       font-weight: 500;
@@ -42,7 +56,7 @@
       flex: 1;
     }
     .hero-text h1 {
-      font-size: 2.8em;
+      font-size: 2.6em;
       color: #004466;
       margin-bottom: 20px;
     }
@@ -65,6 +79,13 @@
     }
     .split-text {
       flex: 1;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    .split-text h2 {
+      color: #004466;
+      font-size: 1.8em;
+      margin-bottom: 15px;
     }
 
     .billie {
@@ -93,11 +114,52 @@
       border-radius: 10px;
     }
 
+    .feature-section {
+      padding: 60px 40px;
+    }
+
+    .feature-section h2 {
+      font-size: 2em;
+      color: #004466;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .feature-section ul {
+      max-width: 900px;
+      margin: auto;
+      font-size: 1.1em;
+      line-height: 1.8;
+      padding-left: 20px;
+    }
+
+    .options {
+      background: #f9f9f9;
+      padding: 60px 40px;
+    }
+
+    .options h2 {
+      text-align: center;
+      color: #004466;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .options ul {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1em;
+      line-height: 1.8;
+      padding-left: 20px;
+    }
+
     footer {
       background: #222;
       color: #eee;
       padding: 40px 20px;
+      text-align: center;
     }
+
     .footer-container {
       max-width: 1100px;
       margin: auto;
@@ -105,16 +167,19 @@
       flex-wrap: wrap;
       justify-content: space-between;
     }
+
     .footer-col {
       flex: 1 1 200px;
       margin-bottom: 30px;
     }
+
     .footer-col h4 {
       margin-bottom: 15px;
       font-size: 1.1em;
       border-bottom: 1px solid #444;
       padding-bottom: 5px;
     }
+
     .footer-col a {
       display: block;
       color: #ccc;
@@ -122,8 +187,18 @@
       margin-bottom: 10px;
       font-size: 0.95em;
     }
+
     .footer-col a:hover {
       text-decoration: underline;
+    }
+
+    .footer-logo {
+      margin-top: 30px;
+    }
+
+    .footer-logo img {
+      max-width: 200px;
+      opacity: 0.7;
     }
   </style>
 </head>
@@ -131,7 +206,8 @@
 
 <header>
   <div class="logo">
-    <img src="Image (16).jpg" alt="ROC Logo"/>
+    <img src="Image (14).jpg" alt="ROC Gradient Logo"/>
+    <h1>ROC Property Solutions</h1>
   </div>
   <nav>
     <a href="#">Services</a>
@@ -145,22 +221,25 @@
 <section class="hero">
   <img src="1d7c00a9-c31f-4b40-aafa-ed0b9d13cd9d.png" alt="Fence with Plants"/>
   <div class="hero-text">
-    <h1>ROC-Solid Fencing</h1>
-    <p>Built for durability, beauty, and peace of mind — Rhino Rock fences deliver unbeatable quality and long-term value with minimal maintenance.</p>
+    <h1>Concrete Fencing That’s Built to Last</h1>
+    <p>Stronger than wood. Smarter than vinyl. Rhino Rock fencing gives you the perfect blend of elegance and endurance.</p>
   </div>
 </section>
 
 <section class="split-section">
   <div class="split-text">
     <h2>Why Choose Rhino Rock?</h2>
-    <ul>
-      <li>🛡️ Long-lasting: 30–50 year life span</li>
-      <li>🌧️ Weather-resistant & pest-proof</li>
-      <li>🎯 Modern, stone-like appearance</li>
-      <li>💰 Saves money long-term over wood/vinyl</li>
-    </ul>
+    <p>Rhino Rock fencing offers unparalleled durability, aesthetic appeal, and long-term savings. It's ideal for residential or commercial properties that want low-maintenance, high-impact fencing that doesn’t compromise on looks.</p>
   </div>
   <img src="458d2b4c-7df2-4ff0-baa0-039787636f6b.jpg" alt="Flyer"/>
+</section>
+
+<section class="split-section">
+  <img src="05eaf636-9702-4152-bfa1-722c77c0d0ed.png" alt="Fence panel"/>
+  <div class="split-text">
+    <h2>Effortless Curb Appeal</h2>
+    <p>Designed to impress. Rhino Rock panels elevate your property's appearance while standing up to nature's toughest challenges.</p>
+  </div>
 </section>
 
 <section class="billie">
@@ -168,12 +247,25 @@
   <p>Co-founder Billie admiring the Rhino Rock fencing</p>
 </section>
 
-<section class="split-section">
-  <img src="05eaf636-9702-4152-bfa1-722c77c0d0ed.png" alt="Fence photo"/>
-  <div class="split-text">
-    <h2>Effortless Curb Appeal</h2>
-    <p>Each Rhino Rock panel is pre-cast and precision engineered to deliver both rugged durability and visual elegance to your property line.</p>
-  </div>
+<section class="feature-section">
+  <h2>Why Concrete Fencing?</h2>
+  <ul>
+    <li>✔ Extremely durable and long-lasting</li>
+    <li>✔ Resistant to fire, pests, weather, and decay</li>
+    <li>✔ Provides sound privacy and security</li>
+    <li>✔ Easy to maintain — occasional rinsing is all it takes</li>
+    <li>✔ Modern, customizable, and HOA-friendly</li>
+  </ul>
+</section>
+
+<section class="options">
+  <h2>Fence Heights & Customization Options</h2>
+  <ul>
+    <li>🏗 Available in 4ft, 6ft, and 8ft heights</li>
+    <li>🚪 Optional custom gates for security and style</li>
+    <li>💡 Add lighting or motion-sensor fixtures</li>
+    <li>🎨 Choose from color tones to match your aesthetic</li>
+  </ul>
 </section>
 
 <section class="booking">
@@ -198,6 +290,9 @@
       <h4>Follow</h4>
       <a href="https://www.instagram.com/roc_cement_fencing?igsh=MWxndDNzeGMzNW05aQ%3D%3D&utm_source=qr" target="_blank">Instagram</a>
     </div>
+  </div>
+  <div class="footer-logo">
+    <img src="Image (15).jpg" alt="Color Logo"/>
   </div>
 </footer>
 
