@@ -10,123 +10,175 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #ffffff;
       color: #222;
-      line-height: 1.6;
+      background: #fff;
     }
     header {
-      background: url('14e9b1df-3030-43b3-92e0-311f6a986751.png') no-repeat center/contain;
-      background-color: #000;
-      color: #fff;
-      padding: 100px 20px 80px;
-      text-align: center;
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid #ccc;
     }
-    header h1 {
-      font-size: 3em;
-      margin: 20px 0 10px;
+    .logo-container {
+      background: #000;
+      padding: 10px 20px;
     }
-    header p {
-      font-size: 1.2em;
-      color: #ccc;
+    .logo-container img {
+      height: 50px;
     }
-    .section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
     }
-    .section:nth-child(even) {
-      background: #f4f4f4;
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 60px 40px;
+      gap: 30px;
     }
-    .section h2 {
-      text-align: center;
-      font-size: 2em;
-      margin-bottom: 40px;
+    .hero img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-text h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
       color: #004466;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+    .hero-text p {
+      font-size: 1.2em;
+      color: #444;
     }
-    .gallery img, .flyer img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 10px;
-    }
-    .cta-buttons {
+    .feature-section {
       display: flex;
-      justify-content: center;
-      margin-top: 30px;
-      gap: 20px;
       flex-wrap: wrap;
+      padding: 60px 40px;
+      gap: 40px;
+      align-items: center;
+      background: #f4f4f4;
     }
-    .cta-buttons a {
-      background: #004466;
-      color: #fff;
-      text-decoration: none;
-      padding: 15px 30px;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s;
+    .feature-text {
+      flex: 1;
     }
-    .cta-buttons a:hover {
-      background: #006688;
+    .feature-text h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #004466;
+    }
+    .feature-text ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+    .feature-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
+      background: #222;
+      color: #eee;
       padding: 40px 20px;
+    }
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .footer-col {
+      flex: 1 1 200px;
+      margin-bottom: 30px;
+    }
+    .footer-col h4 {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+    }
+    .footer-col a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 10px;
       font-size: 0.95em;
+    }
+    .footer-col a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>ROC Property Solutions</h1>
-    <p>Modern. Durable. ROC-Solid Fencing.</p>
+    <div class="logo-container">
+      <img src="14e9b1df-3030-43b3-92e0-311f6a986751.png" alt="ROC Logo">
+    </div>
+    <nav>
+      <a href="#">Services</a>
+      <a href="#">Our Process</a>
+      <a href="#">Book a Visit</a>
+      <a href="#">Contact</a>
+    </nav>
   </header>
 
-  <section class="section">
-    <h2>Photo Gallery</h2>
-    <div class="gallery">
-      <img src="05eaf636-9702-4152-bfa1-722c77c0d0ed.png" alt="Fence 1">
-      <img src="1d7c00a9-c31f-4b40-aafa-ed0b9d13cd9d.png" alt="Fence 2">
-      <img src="04720b08-c6df-47c5-af27-76dc323ee3b3.png" alt="Fence 3">
-      <img src="14e9b1df-3030-43b3-92e0-311f6a986751.png" alt="Fence 4">
+  <section class="hero">
+    <img src="1d7c00a9-c31f-4b40-aafa-ed0b9d13cd9d.png" alt="Featured Fence">
+    <div class="hero-text">
+      <h1>Modern, Durable, ROC-Solid Fencing</h1>
+      <p>Upgrade your property with beautiful Rhino Rock fencing solutions designed for longevity, low maintenance, and a sleek look that blends seamlessly with any landscape.</p>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Why Choose Rhino Rock?</h2>
-    <img class="flyer" src="458d2b4c-7df2-4ff0-baa0-039787636f6b.jpg" alt="Rhino Rock Flyer">
-  </section>
-
-  <section class="section">
-    <h2>Free Online Estimate</h2>
-    <iframe src="https://forms.office.com/r/1AGaDwFykU"></iframe>
-    <div class="cta-buttons">
-      <a href="https://forms.office.com/r/1AGaDwFykU" target="_blank">Submit Estimate Request</a>
+  <section class="feature-section">
+    <div class="feature-text">
+      <h2>Why Choose Rhino Rock Fencing?</h2>
+      <ul>
+        <li><strong>Durable:</strong> Lasts 30–50 years with minimal upkeep</li>
+        <li><strong>Low Maintenance:</strong> Resists weather, pests, and rot</li>
+        <li><strong>Stylish:</strong> Stone-like appearance adds modern appeal</li>
+        <li><strong>Cost-Effective:</strong> Saves money over wood and vinyl</li>
+        <li><strong>Weather Resistant:</strong> Built to withstand extreme conditions</li>
+      </ul>
     </div>
-  </section>
-
-  <section class="section">
-    <h2>Book an On-Site Visit</h2>
-    <iframe src="https://outlook.office.com/owa/calendar/RocPropertySolutions@ROCPropertySolutions.com/bookings/"></iframe>
-    <div class="cta-buttons">
-      <a href="https://outlook.office.com/owa/calendar/RocPropertySolutions@ROCPropertySolutions.com/bookings/" target="_blank">Schedule a Visit</a>
+    <div class="feature-image">
+      <img src="458d2b4c-7df2-4ff0-baa0-039787636f6b.jpg" alt="Flyer">
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 ROC Property Solutions. All rights reserved.</p>
-    <p>Contact: hello@rocpropertysolutions.com</p>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#">Services</a>
+        <a href="#">Our Process</a>
+        <a href="#">Free Estimate</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@rocpropertysolutions.com">hello@rocpropertysolutions.com</a>
+        <a href="#">Schedule a Visit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>
