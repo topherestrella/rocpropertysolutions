@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: url('brick-wall-enlarged.png') no-repeat center center fixed;
-  background-size: cover;
+  background: url('brick-wall-enlarged.png') repeat;
+background-size: auto;
   color: #2C3E50;
   position: relative;
   min-height: 100vh;
