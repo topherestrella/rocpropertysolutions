@@ -1,10 +1,14 @@
 
-/* General Styles */
-body {
+/* General Reset & Base Styles */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+body {
   font-family: 'Segoe UI', sans-serif;
   background: url('brick-wall-enlarged.png') repeat;
-  background-size: auto;
+  background-size: 150px 150px;
   color: #2C3E50;
   position: relative;
   min-height: 100vh;
@@ -14,98 +18,76 @@ body {
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   z-index: 0;
 }
-h1, h2 {
-  text-align: center;
-  z-index: 1;
-}
-p {
-  z-index: 1;
-  text-align: center;
-}
-
-/* Logo */
-header .logo img {
-  width: 200px;
-}
-.site-title {
-  position: relative;
-  color: #2C3E50;
-  font-family: Impact, Charcoal, sans-serif;
-  font-size: 2em;
-  text-align: center;
-  margin-top: 10px;
+/* Logo Styling */
+.logo img {
+  width: 180px;
+  margin: 20px;
 }
 
 /* Navigation */
 nav {
-  text-align: center;
-  margin: 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
 }
 nav a {
-  margin: 0 15px;
-  color: #2C3E50;
+  margin-left: 20px;
   text-decoration: none;
+  color: #2C3E50;
   font-weight: bold;
 }
 nav a:hover {
   text-decoration: underline;
 }
-
+/* Hamburger Icon */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background-color: #2C3E50;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+.nav-links {
+  display: flex;
+}
 /* Hero & Sections */
-.hero, .split-section, .booking, .why-concrete, .options {
+section {
   padding: 40px 20px;
   text-align: center;
 }
-.hero img, .split-section img, .billie img {
+section img {
   width: 90%;
   max-width: 600px;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   margin-bottom: 20px;
 }
-.hero-text, .split-text {
-  max-width: 800px;
-  margin: auto;
-}
-.billie {
-  padding: 20px;
-}
-.billie p {
-  font-style: italic;
-  color: #555;
-}
-
-/* Lists */
-.why-concrete, .options {
-  background: rgba(255, 255, 255, 0.85);
-}
-.why-concrete ul, .options ul {
-  list-style-type: disc;
+ul {
+  list-style: disc;
+  text-align: left;
   max-width: 700px;
   margin: auto;
-  text-align: left;
   font-size: 1.1em;
   line-height: 1.8;
   padding-left: 20px;
 }
-
-/* Booking Section */
-.booking h2 {
-  font-size: 1.8em;
-  color: #003344;
-  margin-bottom: 20px;
-}
-iframe {
+.booking iframe {
   width: 90%;
   max-width: 900px;
   height: 600px;
   border: none;
   border-radius: 10px;
 }
-
 /* Buttons */
 .button {
   display: inline-block;
@@ -128,9 +110,40 @@ footer {
   font-size: 12px;
   color: #555;
   text-align: center;
+  padding: 20px;
 }
 .footer-logo img {
   max-width: 150px;
   opacity: 0.85;
   margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    justify-content: center;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    position: absolute;
+    top: 50px;
+    left: 0;
+    text-align: center;
+    border-top: 1px solid #ccc;
+  }
+  .nav-links a {
+    margin: 15px 0;
+  }
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+  .nav-active {
+    display: flex;
+  }
 }
