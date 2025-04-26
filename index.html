@@ -110,28 +110,29 @@
     <p>© 2025 ROC Property Solutions LLC</p>
   </footer>
 
-  <!-- JavaScript for Hamburger Menu -->
+  <!-- JavaScript for Hamburger Menu & Scroll Animations -->
   <script>
+    // Hamburger Menu Toggle
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
       navLinks.classList.toggle('nav-active');
     });
-  </script>
-<script>
-  const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
 
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-</script>
+    // Scroll-triggered Animations
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 
 </body>
 </html>
