@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROC Property Solutions</title>
+
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="main-style.css">
+
+  <!-- Adaptive Favicon -->
+  <link rel="icon" href="favicon-light.png" type="image/png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="favicon-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; color: #222; background: #fff; }
+    header {
+  background: #2f2f2f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+  position: relative;
+}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo img {
+      height: 70px;
+    }
+    .logo a {
+      display: inline-block;
+    }
+  .site-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 2em;
+  white-space: nowrap;
+}
+
+    nav a {
+      margin-left: 25px;
+      color: #eee;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 40px;
+      background: #f1f1f1;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-text h1 {
+      font-size: 2.6em;
+      color: #004466;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 1.2em;
+      color: #444;
+    }
+
+    .split-section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 60px;
+      gap: 40px;
+      align-items: center;
+    }
+    .split-section img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 10px;
+    }
+    .split-text {
+      flex: 1;
+      font-size: 1.15em;
+      line-height: 1.6;
+    }
+    .split-text h2 {
+      color: #004466;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    .billie {
+      text-align: center;
+      padding: 40px;
+    }
+    .billie img {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .billie p {
+      margin-top: 10px;
+      font-style: italic;
+      color: #555;
+    }
+
+    .why-concrete {
+      background: #e9f1f5;
+      padding: 60px 40px;
+    }
+
+    .why-concrete h2 {
+      font-size: 2em;
+      color: #004466;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .why-concrete ul {
+      max-width: 900px;
+      margin: auto;
+      font-size: 1.1em;
+      line-height: 1.8;
+      padding-left: 20px;
+    }
+
+    .options {
+      background: #f9f9f9;
+      padding: 60px 40px;
+    }
+
+    .options h2 {
+      text-align: center;
+      color: #004466;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .options ul {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1em;
+      line-height: 1.8;
+      padding-left: 20px;
+    }
+
+    .booking {
+      background: #dbe4ec;
+      padding: 60px 20px;
+    }
+
+    .booking h2 {
+      text-align: center;
+      font-size: 1.8em;
+      color: #003344;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: #222;
+      color: #eee;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-col {
+      flex: 1 1 200px;
+      margin-bottom: 30px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 0.95em;
+    }
+
+    .footer-col a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-logo {
+      margin-top: 30px;
+    }
+
+    .footer-logo img {
+      max-width: 200px;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="/"><img src="Image (14).jpg" alt="ROC Gradient Logo"/></a>
+  </div>
+  <div class="site-title">ROC Property Solutions</div>
+  <nav>
+    <a href="#">Services</a>
+    <a href="#">Our Process</a>
+    <a href="https://forms.office.com/r/1AGaDwFykU" target="_blank">Free Online Estimate</a>
+    <a href="https://outlook.office.com/owa/calendar/RocPropertySolutions@ROCPropertySolutions.com/bookings/" target="_blank">Book a Visit</a>
+    <a href="mailto:hello@rocpropertysolutions.com">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="1d7c00a9-c31f-4b40-aafa-ed0b9d13cd9d.png" alt="Fence with Plants"/>
+  <div class="hero-text">
+    <h1>Concrete Fencing That’s Built to Last</h1>
+    <p>Stronger than wood. Smarter than vinyl. Rhino Rock fencing gives you the perfect blend of elegance and endurance, trusted for both homes and commercial spaces.</p>
+  </div>
+</section>
+
+<section class="split-section">
+  <div class="split-text">
+    <h2>Why Choose Rhino Rock?</h2>
+    <p>Rhino Rock fencing offers unmatched durability and beauty. It’s perfect for property owners looking for security, sound privacy, and a premium aesthetic without the hassle of ongoing maintenance.</p>
+  </div>
+  <img src="458d2b4c-7df2-4ff0-baa0-039787636f6b.jpg" alt="Flyer"/>
+</section>
+
+<section class="split-section">
+  <img src="05eaf636-9702-4152-bfa1-722c77c0d0ed.png" alt="Fence panel"/>
+  <div class="split-text">
+    <h2>Effortless Curb Appeal</h2>
+    <p>Each Rhino Rock panel is designed to add elegance to your property. The clean stone-like texture complements landscaping beautifully, creating a strong first impression.</p>
+  </div>
+</section>
+
+<section class="billie">
+  <img src="aae6c0bd-078e-48e3-8781-7c476a3dde1e.jpg" alt="Billie admiring Rhino Rock Fence"/>
+  <p>Co-founder Billie admiring the Rhino Rock fencing</p>
+</section>
+
+<section class="why-concrete">
+  <h2>Why Concrete Fencing?</h2>
+  <ul>
+    <li>Extremely durable and long-lasting — 30 to 50 years</li>
+    <li>Resistant to fire, pests, weather, and rot</li>
+    <li>Minimal upkeep required — occasional rinse is enough</li>
+    <li>Sound-reducing and added property privacy</li>
+    <li>Modern and HOA-friendly appearance</li>
+  </ul>
+</section>
+
+<section class="options">
+  <h2>Fence Heights & Customization Options</h2>
+  <ul>
+    <li>Available in 4ft, 6ft, and 8ft heights</li>
+    <li>Custom gate designs to match your property</li>
+    <li>Optional lighting and motion sensor add-ons</li>
+    <li>Choose from a variety of earth-tone color finishes</li>
+  </ul>
+</section>
+
+<section class="booking">
+  <h2>Book Your Free On-Site Visit</h2>
+  <iframe src="https://outlook.office.com/owa/calendar/RocPropertySolutions@ROCPropertySolutions.com/bookings/"></iframe>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#">Services</a>
+      <a href="#">Our Process</a>
+      <a href="https://forms.office.com/r/1AGaDwFykU" target="_blank">Free Online Estimate</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hello@rocpropertysolutions.com">Email Us</a>
+      <a href="https://outlook.office.com/owa/calendar/RocPropertySolutions@ROCPropertySolutions.com/bookings/" target="_blank">Book a Visit</a>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <a href="https://www.instagram.com/roc_cement_fencing?igsh=MWxndDNzeGMzNW05aQ%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-logo">
+    <img src="Image (15).jpg" alt="Color Logo"/>
+    <a href="privacy-policy.html">Privacy Policy & Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
