@@ -1,139 +1,350 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ROC Property Solutions</title>
-
-  <link rel="icon" href="favicon-light.png" type="image/png" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="favicon-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
-
-  <!-- Link to Final CSS -->
-  <link rel="stylesheet" href="main-style.css">
-
-  <!-- FontAwesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ROC Property Solutions, a trusted general contractor in Western Washington, specializes in light to medium remodels, unit turns, fencing, and home maintenance.">
+    <meta name="keywords" content="general contracting, remodels, unit turns, home maintenance, fencing, Western Washington, property services">
+    <title>ROC Property Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main-style.css">
+    <!-- Favicons -->
+    <link rel="icon" href="favicon-dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="favicon-light.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="favicon-dark.png">
+    <style>
+        /* Additional styles for navigation and gallery */
+        body {
+            background-color: #E6E6E6 !important;
+        }
+        nav {
+            background-color: #FFFFFF;
+            z-index: 20;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #D3D3D3;
+            color: #003087;
+        }
+        .cta-button:hover {
+            background-color: #D3D3D3;
+        }
+        #back-to-top {
+            z-index: 10;
+        }
+        /* Hamburger menu */
+        #menu-toggle {
+            display: none;
+        }
+        #menu {
+            display: flex;
+        }
+        @media (max-width: 768px) {
+            #menu {
+                display: none;
+            }
+            #menu-toggle:checked ~ #menu {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background-color: #E6E6E6;
+                padding: 1rem;
+                z-index: 20;
+            }
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+            .hamburger div {
+                width: 25px;
+                height: 3px;
+                background-color: #003087;
+                margin: 5px 0;
+            }
+        }
+        /* Gallery styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        /* Socials styles */
+        .socials {
+            margin-top: 1rem;
+        }
+        .socials a {
+            color: #003087;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        .socials a:hover {
+            color: #D3D3D3;
+        }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="p-4 sticky top-0 z-20">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#home">
+                <img src="images/ROC-Logo-Optimized.png" alt="ROC Property Solutions Logo" class="h-12">
+            </a>
+            <label for="menu-toggle" class="hamburger md:hidden">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <ul id="menu" class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- Logo -->
-  <div class="logo">
-    <a href="index.html"><img src="ROC-Logo-Optimized.png" alt="ROC Logo"/></a>
-  </div>
+    <!-- Hero Section -->
+    <section id="home" class="py-20 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-[#003087] mb-4">Your Trusted General Contractor in Western Washington</h2>
+            <p class="text-lg mb-6 max-w-2xl mx-auto">ROC Property Solutions delivers ROC-solid results for homeowners and property managers, specializing in remodels, unit turns, fencing, and home maintenance.</p>
+            <a href="#contact" class="cta-button">Get a Free Quote</a>
+        </div>
+    </section>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="menu-toggle" id="menu-toggle">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="nav-links" id="nav-links">
-      <a href="#">Services</a>
-      <a href="#">Our Process</a>
-      <a href="https://forms.office.com/r/1AGaDwFykU" target="_blank">Free Estimate</a>
-      <a href="https://outlook.office.com/owa/calendar/RocPropertySolutions@ROCPropertySolutions.com/bookings/" target="_blank">Book a Visit</a>
-      <a href="mailto:hello@rocpropertysolutions.com">Contact</a>
-    </div>
-  </nav>
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#003087] mb-8">About ROC Property Solutions</h2>
+            <p class="text-lg max-w-3xl mx-auto">At ROC Property Solutions, we’re your go-to contractor in Western Washington for all property needs. Our team brings expertise, professionalism, and a commitment to quality to every project, whether it’s a kitchen remodel, a unit turn for a rental property, or routine maintenance.</p>
+            <p class="text-lg max-w-3xl mx-auto mt-4">We work closely with homeowners and property managers to deliver results that last. Choose ROC Property Solutions for ROC-solid service you can trust.</p>
+        </div>
+    </section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <img src="1d7c00a9-c31f-4b40-aafa-ed0b9d13cd9d.png" alt="Fence with Plants" loading="lazy"/>
-    <div class="hero-text">
-      <h1>Concrete Fencing That’s Built to Last</h1>
-      <p>Stronger than wood. Smarter than vinyl. Rhino Rock fencing gives you the perfect blend of elegance and endurance, trusted for both homes and commercial spaces.</p>
-    </div>
-  </section>
+    <!-- Services Section -->
+    <section id="services" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-[#003087] text-center mb-8">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Light to Medium Remodels -->
+                <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Light to Medium Remodels</h3>
+                    <p class="mb-4">A well-executed remodel enhances your home’s beauty, functionality, and value. Our team delivers high-quality upgrades tailored to your vision.</p>
+                    <h4 class="font-semibold mb-2">What’s Included</h4>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Kitchen and bathroom updates</li>
+                        <li>Flooring installation (hardwood, tile, laminate)</li>
+                        <li>Painting and drywall repair</li>
+                        <li>Trim and molding installation</li>
+                    </ul>
+                    <h4 class="font-semibold mb-2">Why It Matters</h4>
+                    <p>Remodels improve aesthetics, increase property value, and enhance comfort, making your space more enjoyable and marketable.</p>
+                </div>
+                <!-- Fencing and Exterior Improvements -->
+                <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Fencing and Exterior Improvements</h3>
+                    <p class="mb-4">Quality fencing and exterior upgrades boost curb appeal, security, and privacy for your property.</p>
+                    <h4 class="font-semibold mb-2">What’s Included</h4>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Fence installation and repair (wood, vinyl, metal)</li>
+                        <li>Deck and patio enhancements</li>
+                        <li>Exterior painting and siding repairs</li>
+                        <li>Landscaping improvements</li>
+                    </ul>
+                    <h4 class="font-semibold mb-2">Why It Matters</h4>
+                    <p>Exterior improvements protect your property from the elements, enhance safety, and create inviting outdoor spaces.</p>
+                </div>
+                <!-- Unit Turns -->
+                <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Unit Turns</h3>
+                    <p class="mb-4">Fast, efficient unit turns keep rental properties ready for new tenants, minimizing vacancy and maximizing value.</p>
+                    <h4 class="font-semibold mb-2">What’s Included</h4>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Deep cleaning and sanitization</li>
+                        <li>Painting and minor repairs</li>
+                        <li>Flooring and fixture updates</li>
+                        <li>Inspection and compliance checks</li>
+                    </ul>
+                    <h4 class="font-semibold mb-2">Why It Matters</h4>
+                    <p>Timely unit turns attract quality tenants, reduce downtime, and maintain your property’s marketability.</p>
+                </div>
+                <!-- General Home Maintenance -->
+                <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">General Home Maintenance</h3>
+                    <p class="mb-4">Regular maintenance prevents costly repairs and keeps your property safe, functional, and attractive.</p>
+                    <h4 class="font-semibold mb-2">What’s Included</h4>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Caulking and sealing</li>
+                        <li>Pressure washing (siding, decks, driveways)</li>
+                        <li>Minor plumbing and electrical repairs</li>
+                        <li>Seasonal upkeep (gutters, HVAC)</li>
+                    </ul>
+                    <h4 class="font-semibold mb-2">Why It Matters</h4>
+                    <p>Proactive maintenance extends the life of your property, improves safety, and preserves its value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Split Sections -->
-  <section class="split-section">
-    <h2>Why Choose Rhino Rock?</h2>
-    <img src="458d2b4c-7df2-4ff0-baa0-039787636f6b.jpg" alt="Flyer" loading="lazy"/>
-    <p>Rhino Rock fencing offers unmatched durability and beauty. Perfect for security, privacy, and a premium aesthetic without ongoing maintenance.</p>
-  </section>
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#003087] mb-8">Project Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="images/04720b08-c6df-47c5-af27-76dc323ee3b3.png" alt="Gallery Image 1"></div>
+                <div class="gallery-item"><img src="images/05eaf636-9702-4152-bfa1-722c77c0d0ed.png" alt="Gallery Image 2"></div>
+                <div class="gallery-item"><img src="images/14e9b1df-3030-43b3-92e0-311f6a986751.png" alt="Gallery Image 3"></div>
+                <div class="gallery-item"><img src="images/1d7c00a9-c31f-4b40-aafa-ed0b9d13cd9d.png" alt="Gallery Image 4"></div>
+                <div class="gallery-item"><img src="images/6640c245-3b82-46b1-bef3-1488628180fa.jpg" alt="Gallery Image 5"></div>
+            </div>
+            <p class="text-lg max-w-3xl mx-auto mt-6">Explore more of our work! Contact us to see additional projects or discuss your needs.</p>
+            <a href="#contact" class="cta-button mt-4 inline-block">Get Started</a>
+        </div>
+    </section>
 
-  <section class="split-section">
-    <h2>Effortless Curb Appeal</h2>
-    <img src="05eaf636-9702-4152-bfa1-722c77c0d0ed.png" alt="Fence panel" loading="lazy"/>
-    <p>Each Rhino Rock panel is designed to complement your landscaping and add lasting elegance to your property.</p>
-  </section>
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#003087] mb-8">Benefits of Choosing ROC Property Solutions</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-6">Partnering with ROC Property Solutions ensures your property thrives. Our professional services deliver lasting results for homeowners and property managers alike.</p>
+            <ul class="list-disc list-inside max-w-3xl mx-auto text-lg">
+                <li><strong>Longevity</strong>: Quality remodels and maintenance extend the life of your property’s components.</li>
+                <li><strong>Safety</strong>: Proper repairs and upkeep prevent hazards like leaks, electrical issues, or structural damage.</li>
+                <li><strong>Property Value</strong>: Well-maintained and updated properties attract buyers and tenants, boosting marketability.</li>
+                <li><strong>Peace of Mind</strong>: Our reliable, detail-oriented team handles every project with care, so you can focus on what matters.</li>
+            </ul>
+        </div>
+    </section>
 
-  <!-- Billie Section -->
-  <section class="billie">
-    <img src="aae6c0bd-078e-48e3-8781-7c476a3dde1e.jpg" alt="Billie admiring Rhino Rock Fence" loading="lazy"/>
-    <p>Co-founder Billie admiring the Rhino Rock fencing</p>
-  </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#003087] mb-8">What Our Clients Say</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-6">Our clients trust us to deliver ROC-solid results. See what they’re saying about our work!</p>
+            <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md max-w-2xl mx-auto">
+                <p class="text-lg mb-4">“ROC Property Solutions transformed our rental property with a quick and thorough unit turn. Highly professional and reliable!”</p>
+                <p class="font-semibold">– Satisfied Client, <a href="https://g.co/kgs/akKnLsg" class="text-[#003087] underline" target="_blank">Google Review</a></p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Why Concrete Section -->
-  <section class="why-concrete">
-    <h2>Why Concrete Fencing?</h2>
-    <ul>
-      <li>Durable — lasts 30 to 50 years</li>
-      <li>Fire, pest, weather, and rot resistant</li>
-      <li>Minimal maintenance</li>
-      <li>Sound-reducing privacy</li>
-      <li>Modern, HOA-friendly design</li>
-    </ul>
-  </section>
+    <!-- Commitment Section -->
+    <section id="commitment" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#003087] mb-8">Our ROC-Solid Commitment</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-4">At ROC Property Solutions, we’re more than just contractors—we’re your partners in maintaining and enhancing your property. Our team is dedicated to delivering results that stand the test of time.</p>
+            <p class="text-lg max-w-3xl mx-auto">We take pride in our professionalism, reliability, and attention to detail, ensuring every project meets your expectations. Whether it’s a remodel, unit turn, or routine maintenance, we’re your go-to team in Western Washington.</p>
+        </div>
+    </section>
 
-  <!-- Options Section -->
-  <section class="options">
-    <h2>Fence Heights & Customization Options</h2>
-    <ul>
-      <li>Heights: 4ft, 6ft, 8ft</li>
-      <li>Custom gates, lighting, and color finishes</li>
-    </ul>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#003087] mb-8">Contact Us</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-6">Ready to start your next project? Contact ROC Property Solutions for a free quote or to discuss your needs. We’re here to help!</p>
+            <div class="max-w-lg mx-auto">
+                <form action="mailto:hello@rocpropertysolutions.com" method="post" enctype="text/plain">
+                    <div class="mb-4">
+                        <label for="name" class="block text-lg mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 border rounded-lg text-[#003087]" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-lg mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 border rounded-lg text-[#003087]" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-lg mb-2">Message</label>
+                        <textarea id="message" name="message" class="w-full p-3 border rounded-lg text-[#003087]" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+                <div class="mt-6">
+                    <p class="text-lg mb-2">Email: <a href="mailto:hello@rocpropertysolutions.com" class="text-[#003087] underline">hello@rocpropertysolutions.com</a></p>
+                    <p class="text-lg mb-2">Phone: <a href="tel:888-770-8762" class="text-[#003087] underline">888-770-UROC</a></p>
+                    <p class="text-lg">Follow us:</p>
+                    <div class="flex justify-center space-x-4 mt-2">
+                        <a href="https://www.instagram.com/roc_cement_fencing" class="cta-button" target="_blank">Instagram</a>
+                        <a href="https://g.co/kgs/C9nfpf3" class="cta-button" target="_blank">Google</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Booking Section -->
-  <section class="booking">
-    <h2>Book Your Free On-Site Visit</h2>
-    <iframe src="https://outlook.office.com/owa/calendar/RocPropertySolutions@ROCPropertySolutions.com/bookings/"></iframe>
-  </section>
+    <!-- Footer -->
+    <footer class="bg-[#E6E6E6] text-[#003087] py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 ROC Property Solutions. All rights reserved.</p>
+            <ul class="flex justify-center space-x-4 mt-2">
+                <li><a href="#home" class="text-[#003087] hover:underline">Home</a></li>
+                <li><a href="#about" class="text-[#003087] hover:underline">About</a></li>
+                <li><a href="#services" class="text-[#003087] hover:underline">Services</a></li>
+                <li><a href="#gallery" class="text-[#003087] hover:underline">Gallery</a></li>
+                <li><a href="#contact" class="text-[#003087] hover:underline">Contact</a></li>
+                <li><a href="privacy-policy.html" class="text-[#003087] hover:underline">Privacy Policy</a></li>
+            </ul>
+            <div class="socials mt-4">
+                <a href="https://www.instagram.com/roc_cement_fencing?igsh=…" target="_blank" title="Follow us on Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://g.co/kgs/C9nfpf3" target="_blank" title="Find us on Google">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="https://rocpropertysolutions.com/" target="_blank" title="Visit our website">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <div class="socials">
-      <a href="https://www.instagram.com/roc_cement_fencing" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
-    <div class="footer-links">
-      <a href="https://forms.office.com/r/1AGaDwFykU" target="_blank">Estimate</a> |
-      <a href="mailto:hello@rocpropertysolutions.com">Contact</a> |
-      <a href="privacy-policy.html">Privacy Policy</a>
-    </div>
-    <div class="footer-logo">
-   <a href="links/">
-      <img src="ROC-Logo-Optimized.png" alt="ROC Logo"/>
-   </a>
-</div>
-    <p>© 2025 ROC Property Solutions LLC</p>
-  </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top">Back to Top</button>
 
-  <!-- JavaScript for Hamburger Menu & Scroll Animations -->
-  <script>
-    // Hamburger Menu Toggle
-    const toggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('nav-active');
-    });
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=[YOUR_GA_TRACKING_ID]"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '[YOUR_GA_TRACKING_ID]');
+    </script>
 
-    // Scroll-triggered Animations
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+    <script>
+        // Show/hide Back to Top button
+        window.onscroll = function() {
+            const button = document.getElementById('back-to-top');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        };
 
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  </script>
-
+        // Scroll to top when button is clicked
+        document.getElementById('back-to-top').onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
 </body>
 </html>
