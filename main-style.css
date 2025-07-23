@@ -148,16 +148,16 @@ footer {
 
 /* Large Image Section */
 .large-image {
-  width: 100%;
-  height: auto;
-  max-height: 600px; /* Increased for a larger appearance */
-  object-fit: cover;
-  display: block;
-  margin: 0 auto; /* Ensures centering */
-  padding: 10px 0; /* Adds some spacing above and below */
+    width: 100%;
+    height: auto;
+    max-height: 600px; /* Makes it large */
+    object-fit: contain; /* Changed to contain to preserve logo integrity */
+    display: block;
+    margin: 0 auto; /* Centers the image */
+    padding: 10px 0; /* Spacing above and below */
 }
 @media (max-width: 768px) {
-  .large-image {
-    max-height: 300px; /* Reduced for mobile to fit screen */
-  }
+    .large-image {
+        max-height: 300px; /* Adjusted for mobile */
+    }
 }
