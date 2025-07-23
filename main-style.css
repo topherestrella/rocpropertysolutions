@@ -145,3 +145,19 @@ footer {
   background-color: #D3D3D3;
   color: #003087;
 }
+
+/* Large Image Section */
+.large-image {
+  width: 100%;
+  height: auto;
+  max-height: 600px; /* Increased for a larger appearance */
+  object-fit: cover;
+  display: block;
+  margin: 0 auto; /* Ensures centering */
+  padding: 10px 0; /* Adds some spacing above and below */
+}
+@media (max-width: 768px) {
+  .large-image {
+    max-height: 300px; /* Reduced for mobile to fit screen */
+  }
+}
