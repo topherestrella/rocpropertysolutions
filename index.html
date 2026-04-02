@@ -22,6 +22,10 @@
             background-color: #FFFFFF;
             z-index: 20;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        nav.nav-hidden {
+            transform: translateY(-100%);
         }
         .nav-link {
             transition: background-color 0.3s ease, color 0.3s ease;
@@ -322,14 +326,27 @@
     </script>
 
     <script>
-        // Show/hide Back to Top button
+        // Show/hide Back to Top button + hide nav on scroll down
+        let lastScrollY = window.scrollY;
+        const nav = document.querySelector('nav');
         window.onscroll = function() {
+            const currentScrollY = window.scrollY;
             const button = document.getElementById('back-to-top');
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+
+            // Back to top button
+            if (currentScrollY > 100) {
                 button.style.display = 'block';
             } else {
                 button.style.display = 'none';
             }
+
+            // Hide nav when scrolling down, show when scrolling up
+            if (currentScrollY > lastScrollY && currentScrollY > 60) {
+                nav.classList.add('nav-hidden');
+            } else {
+                nav.classList.remove('nav-hidden');
+            }
+            lastScrollY = currentScrollY;
         };
 
         // Scroll to top when button is clicked
