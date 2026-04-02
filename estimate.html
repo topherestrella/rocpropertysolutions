@@ -37,21 +37,24 @@
 
     /* HEADER */
     header {
-      background-color: #ffffff;
+      background-color: #f0ede8;
       padding: 16px 32px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
+      position: relative;
     }
 
     header a.logo-link {
       display: flex;
       align-items: center;
-      gap: 12px;
       text-decoration: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    header img { height: 70px; width: auto; }
+    header img { height: auto; width: 250px; }
 
     header .back-link {
       font-size: 0.85rem;
