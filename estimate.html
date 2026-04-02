@@ -27,10 +27,20 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f0ede8;
+      background: url('/links/brick-wall-enlarged.png') repeat;
+      background-size: auto;
       color: var(--text);
       min-height: 100vh;
       position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 0;
+      pointer-events: none;
     }
 
     header, main, footer, .trust-bar { position: relative; z-index: 1; }
@@ -38,27 +48,28 @@
     /* HEADER */
     header {
       background-color: #f0ede8;
-      padding: 24px 32px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
+      padding: 30px 32px;
+      text-align: center;
       position: relative;
-      overflow: visible;
-      min-height: 100px;
     }
 
     header a.logo-link {
-      display: flex;
-      align-items: center;
+      display: inline-block;
       text-decoration: none;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
     header img { height: auto; width: 250px; }
 
+    .header-tagline {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
     header .back-link {
+      position: absolute;
+      top: 16px;
+      right: 32px;
       font-size: 0.85rem;
       color: var(--navy);
       text-decoration: none;
@@ -315,10 +326,11 @@
 <body>
 
   <header>
+    <a href="https://rocpropertysolutions.com/links/" class="back-link">← All Links</a>
     <a href="https://rocpropertysolutions.com" class="logo-link">
       <img src="/links/ROC-Logo-Optimized.png" alt="ROC Property Solutions">
     </a>
-    <a href="https://rocpropertysolutions.com/links/" class="back-link">← All Links</a>
+    <p class="header-tagline">Licensed · Bonded · Insured</p>
   </header>
 
   <div class="hero">
