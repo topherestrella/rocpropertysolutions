@@ -7,83 +7,88 @@
   <link rel="icon" href="/links/favicon-dark.png" type="image/png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="/links/favicon-light.png" type="image/png" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Your estimate request has been received. ROC Property Solutions will be in touch within 1 business day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --navy: #2C3E50;
       --navy-dark: #1a252f;
-      --green: #089949;
-      --green-dark: #067a3a;
-      --text: #2C3E50;
-      --muted: #555;
+      --navy-dker: #131c24;
+      --gold: #C6A667;
+      --gold-lt: #DFC28E;
+      --gray-hi: #F4F4F4;
+      --text: #212B34;
+      --muted: #5b6672;
       --border: #dde3e8;
       --white: #ffffff;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: url('/links/brick-wall-enlarged.png') repeat;
-      background-size: auto;
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-hi);
       color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      position: relative;
+      -webkit-font-smoothing: antialiased;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255, 255, 255, 0.8);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    header, main, footer { position: relative; z-index: 1; }
+    h1, h2 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.01em; }
 
     header {
-      background-color: transparent;
-      padding: 30px 32px;
+      background: var(--navy-dark);
+      padding: 18px 20px;
       text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
     }
-
-    header a { text-decoration: none; }
-    header img { height: auto; width: 250px; }
+    header a { text-decoration: none; display: inline-block; }
+    header img { height: 30px; width: auto; }
 
     main {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 28px 24px 56px;
+      padding: 32px 18px 56px;
     }
 
     .card {
       background: var(--white);
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(44,62,80,0.12);
-      max-width: 500px;
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(19,28,36,0.1);
+      border: 1px solid var(--border);
+      max-width: 480px;
       width: 100%;
       overflow: hidden;
       text-align: center;
     }
 
     .card-top {
-      background-color: var(--navy);
-      padding: 36px 32px 32px;
+      background: linear-gradient(165deg, var(--navy-dark), var(--navy-dker));
+      padding: 40px 28px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-top::before{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(198,166,103,0.18), transparent 65%);
+      pointer-events:none;
     }
 
     .checkmark {
-      width: 60px; height: 60px;
-      background-color: var(--green);
+      position: relative;
+      width: 64px; height: 64px;
+      background: linear-gradient(120deg, var(--gold), var(--gold-lt));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 18px;
-      animation: pop 0.4s ease-out;
+      margin: 0 auto 20px;
+      animation: pop 0.45s cubic-bezier(.34,1.56,.64,1);
+      box-shadow: 0 10px 28px rgba(198,166,103,0.4);
     }
 
     @keyframes pop {
@@ -94,51 +99,55 @@
 
     .checkmark svg {
       width: 30px; height: 30px;
-      stroke: white; stroke-width: 3;
+      stroke: var(--navy-dker); stroke-width: 3;
       fill: none; stroke-linecap: round; stroke-linejoin: round;
     }
 
     .card-top h1 {
+      position: relative;
       font-size: 1.7rem;
-      font-weight: 600;
       color: var(--white);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .card-top p {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.7);
+      position: relative;
+      font-size: 0.94rem;
+      color: rgba(255,255,255,0.72);
       line-height: 1.6;
     }
+    .card-top p strong { color: var(--gold-lt); }
 
-    .card-body { padding: 28px 32px; }
+    .card-body { padding: 28px 28px 30px; }
 
-    .what-next { text-align: left; margin-bottom: 24px; }
+    .what-next { text-align: left; margin-bottom: 22px; }
 
     .what-next h2 {
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--navy);
       margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gold);
     }
 
-    .steps { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 
     .steps li {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 11px;
       font-size: 0.88rem;
       color: var(--muted);
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     .step-dot {
       flex-shrink: 0;
-      width: 7px; height: 7px;
-      background-color: var(--navy);
+      width: 8px; height: 8px;
+      background: var(--gold);
       border-radius: 50%;
       margin-top: 6px;
     }
@@ -149,53 +158,60 @@
 
     .btn-primary {
       display: block;
-      background-color: var(--navy);
-      color: white;
-      font-size: 0.9rem;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       font-weight: 600;
       text-decoration: none;
-      padding: 13px 24px;
-      border-radius: 8px;
+      padding: 14px 24px;
+      border-radius: 10px;
       transition: background 0.2s;
       text-align: center;
     }
-
-    .btn-primary:hover { background-color: var(--navy-dark); }
+    .btn-primary:hover { background: var(--navy-dark); }
 
     .btn-secondary {
       display: block;
       background: transparent;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       font-weight: 600;
       text-decoration: none;
-      padding: 10px 24px;
+      padding: 11px 24px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 10px;
       transition: border-color 0.2s, color 0.2s;
       text-align: center;
     }
-
     .btn-secondary:hover { border-color: var(--navy); color: var(--navy); }
 
     footer {
-      background-color: var(--navy);
-      padding: 18px 32px;
+      background: var(--navy-dker);
+      padding: 20px 20px;
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
-
     footer p { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
-    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
     footer a:hover { color: #fff; }
+
+    @media (min-width: 600px){
+      header { padding: 22px 32px; }
+      .card-top { padding: 44px 40px 36px; }
+      .card-body { padding: 32px 40px 36px; }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="https://rocpropertysolutions.com" class="logo-link">
-      <img src="/links/ROC-Logo-Optimized.png" alt="ROC Property Solutions">
+    <a href="https://rocpropertysolutions.com">
+      <img src="https://rocpropertysolutions.com/ROC-Logo-Optimized.png" alt="ROC Property Solutions">
     </a>
   </header>
 
@@ -206,11 +222,11 @@
           <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
         </div>
         <h1>Request Received</h1>
-        <p>Thanks for reaching out. We'll review your request and be in touch within <strong style="color:white;">1 business day</strong>.</p>
+        <p>Thanks for reaching out. We'll review your request and be in touch within <strong>1 business day</strong>.</p>
       </div>
       <div class="card-body">
         <div class="what-next">
-          <h2>What happens next</h2>
+          <h2>What Happens Next</h2>
           <ul class="steps">
             <li><span class="step-dot"></span><span>We'll review your request and contact you to discuss your project.</span></li>
             <li><span class="step-dot"></span><span>We'll schedule a free on-site visit to assess the scope of work.</span></li>
@@ -227,7 +243,7 @@
   </main>
 
   <footer>
-    <p>© 2025 ROC Property Solutions LLC &nbsp;·&nbsp; <a href="https://rocpropertysolutions.com/links/privacy-policy.html">Privacy Policy</a></p>
+    <p>&copy; 2026 ROC Property Solutions LLC &nbsp;&middot;&nbsp; <a href="https://rocpropertysolutions.com/links/privacy-policy.html">Privacy Policy</a></p>
   </footer>
 
 </body>
