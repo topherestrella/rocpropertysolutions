@@ -1,358 +1,787 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ROC Property Solutions delivers ROC-solid results for homeowners, property managers, and builders—specializing in remodels, unit turns, fencing, home maintenance, and interior finish trades including drywall, painting, flooring, tile, trim, cabinetry, and more. We serve residential clients with high-quality renovations and partner with developers and contractors to provide reliable labor for multi-unit construction projects.">
-    <meta name="keywords" content="general contracting, remodels, unit turns, home maintenance, fencing, Western Washington, property services">
-    <title>ROC Property Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="main-style.css">
-    <!-- Favicons -->
-    <link rel="icon" href="favicon-dark.png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="favicon-light.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="favicon-dark.png">
-    <style>
-        /* Additional styles for navigation and gallery */
-        body {
-            background-color: #E6E6E6 !important;
-        }
-        nav {
-            background-color: #FFFFFF;
-            z-index: 20;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        nav.nav-hidden {
-            transform: translateY(-100%);
-        }
-        .nav-link {
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .nav-link:hover {
-            background-color: #D3D3D3;
-            color: #003087;
-        }
-        .cta-button:hover {
-            background-color: #D3D3D3;
-        }
-        #back-to-top {
-            z-index: 10;
-        }
-        /* Hamburger menu */
-        #menu-toggle {
-            display: none;
-        }
-        #menu {
-            display: flex;
-        }
-        @media (max-width: 768px) {
-            #menu {
-                display: none;
-            }
-            #menu-toggle:checked ~ #menu {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 64px;
-                left: 0;
-                right: 0;
-                background-color: #E6E6E6;
-                padding: 1rem;
-                z-index: 20;
-            }
-            .hamburger {
-                display: block;
-                cursor: pointer;
-            }
-            .hamburger div {
-                width: 25px;
-                height: 3px;
-                background-color: #003087;
-                margin: 5px 0;
-            }
-        }
-        /* Gallery styles */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-        /* Socials styles */
-        .socials {
-            margin-top: 1rem;
-        }
-        .socials a {
-            color: #003087;
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
-            transition: color 0.3s ease;
-        }
-        .socials a:hover {
-            color: #D3D3D3;
-        }
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-    
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROC Property Solutions | One Crew. Every Trade.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2C3E50;
+    --navy-dk:#1A252F;
+    --navy-dker:#131C24;
+    --gray:#E6E6E6;
+    --gray-hi:#F4F4F4;
+    --gold:#C6A667;
+    --gold-lt:#DFC28E;
+    --white:#FFFFFF;
+    --ink:#212B34;
+    --line: rgba(44,62,80,0.14);
+    --line-lt: rgba(255,255,255,0.16);
+    --r: 14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif; background:var(--gray-hi); color:var(--ink);
+    line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 20px;}
+  h1,h2,h3{font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:0.01em; font-weight:600;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; display:flex; align-items:center; gap:9px; color:var(--navy);}
+  .eyebrow::before{content:""; width:18px; height:1px; background:currentColor; display:inline-block;}
+  .grad-text{
+    background:linear-gradient(100deg, var(--navy), var(--gold) 55%, var(--navy));
+    background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation: shine 8s ease-in-out infinite;
+  }
+  @keyframes shine{ 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
+
+  /* ---------- header (mobile first) ---------- */
+  header{ position:sticky; top:0; z-index:70; background:rgba(26,37,47,0.94); backdrop-filter: blur(10px); border-bottom:1px solid var(--line-lt); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand img{ height:30px; width:auto; }
+  nav ul{ display:none; }
+  .nav-cta{ display:none; }
+  .burger{ display:flex; flex-direction:column; gap:5px; cursor:pointer; background:none; border:0; padding:6px; }
+  .burger span{ width:22px; height:2px; background:var(--white); display:block; transition:.2s; }
+  .mobile-menu{ display:none; }
+  .mobile-menu.open{ display:flex; flex-direction:column; background:var(--navy-dk); border-top:1px solid var(--line-lt); padding:16px 20px 22px; gap:14px; }
+  .mobile-menu a{ color:rgba(255,255,255,0.85); font-size:0.98rem; padding:6px 0; }
+  .mobile-menu .nav-cta{ display:inline-flex; }
+
+  /* floating mobile CTA bar */
+  .mobile-bar{
+    position:fixed; bottom:0; left:0; right:0; z-index:80; display:flex;
+    background:var(--navy-dk); border-top:1px solid var(--line-lt);
+    padding: 10px max(10px, env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-right));
+    gap:10px;
+  }
+  .mobile-bar a{
+    flex:1; display:flex; align-items:center; justify-content:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.04em; text-transform:uppercase;
+    padding:12px; border-radius:10px; color:var(--white);
+  }
+  .mobile-bar a.call{ background:rgba(255,255,255,0.08); border:1px solid var(--line-lt); }
+  .mobile-bar a.est{ background:linear-gradient(120deg, var(--gold), var(--gold-lt)); color:var(--navy-dker); font-weight:600; }
+  .mobile-bar svg{ width:16px; height:16px; }
+  body{ padding-bottom:70px; }
+
+  /* ---------- hero (mobile first) ---------- */
+  .hero{ background:radial-gradient(ellipse 120% 70% at 30% 0%, rgba(198,166,103,0.16), transparent 60%), linear-gradient(160deg, var(--navy-dk), var(--navy-dker)); color:var(--white); position:relative; overflow:hidden; padding:44px 0 40px; }
+  .hero::after{ content:""; position:absolute; top:-20%; right:-25%; width:70vw; height:70vw; max-width:520px; max-height:520px; border-radius:50%; background:radial-gradient(circle, rgba(198,166,103,0.18), transparent 70%); pointer-events:none; }
+  .hero-grid{ position:relative; display:flex; flex-direction:column; gap:28px; }
+  .hero h1{ font-size:clamp(2rem, 8vw, 2.6rem); line-height:1.08; margin:14px 0 16px; }
+  .hero p.lead{ font-size:1rem; color:rgba(255,255,255,0.72); margin-bottom:24px; }
+  .btn-row{ display:flex; flex-direction:column; gap:12px; margin-bottom:26px; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:16px 22px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.05em; text-transform:uppercase;
+    transition:all .25s; border:1px solid transparent; position:relative; overflow:hidden; isolation:isolate; border-radius:10px;
+  }
+  .btn-primary{ background:linear-gradient(120deg, var(--gold), var(--gold-lt)); color:var(--navy-dker); font-weight:700; }
+  .btn-primary::before{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent); transform:translateX(-130%); transition:transform .55s; z-index:-1;}
+  .btn-primary:active::before, .btn-primary:hover::before{ transform:translateX(130%); }
+  .btn-primary:hover{ box-shadow:0 10px 30px rgba(198,166,103,0.4); }
+  .btn-ghost{ border-color:rgba(255,255,255,0.28); color:var(--white); }
+  .btn-ghost:hover{ border-color:var(--white); background:rgba(255,255,255,0.06); }
+  .trust-row{ display:flex; flex-direction:column; gap:10px; }
+  .trust-item{ display:flex; align-items:center; gap:9px; font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:rgba(255,255,255,0.62); text-transform:uppercase; letter-spacing:0.04em;}
+  .trust-item svg{ width:14px; height:14px; color:var(--gold); flex-shrink:0; }
+  .hero-photo{ position:relative; border-radius:var(--r); overflow:hidden; aspect-ratio:16/11; touch-action:pan-y; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; filter:saturate(0.96) contrast(1.05); transition:transform .3s ease; }
+  .hero-badge{
+    position:absolute; bottom:12px; left:12px; background:rgba(19,28,36,0.82); backdrop-filter:blur(6px);
+    border:1px solid var(--line-lt); padding:10px 14px; border-radius:10px;
+  }
+  .hero-badge .n{ font-family:'Oswald',sans-serif; font-size:1.3rem; color:var(--gold-lt); line-height:1; }
+  .hero-badge .l{ font-family:'IBM Plex Mono', monospace; font-size:0.58rem; letter-spacing:0.07em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-top:3px; }
+
+  /* ---------- stat strip w/ count-up ---------- */
+  .stat-strip{ background:var(--navy-dker); border-top:1px solid var(--line-lt); }
+  .stat-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px 0; padding:24px 0; }
+  .stat{ text-align:center; }
+  .stat .num{ font-family:'Oswald', sans-serif; font-size:1.7rem; color:var(--gold-lt); }
+  .stat .lbl{ font-family:'IBM Plex Mono', monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-top:3px;}
+
+  /* ---------- trade ticker ---------- */
+  .ticker{ background:var(--navy); overflow:hidden; }
+  .ticker-track{ display:flex; gap:36px; white-space:nowrap; padding:10px 0; animation:scroll 22s linear infinite; width:max-content; }
+  .ticker-track span{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:flex; align-items:center; gap:8px; }
+  .ticker-track span::before{ content:"●"; color:var(--gold-lt); font-size:0.45rem; }
+  @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ---------- section shell (mobile first) ---------- */
+  section{ padding:52px 0; }
+  section.alt{ background:var(--gray); }
+  .section-head{ margin-bottom:22px; }
+  .section-head h2{ font-size:clamp(1.6rem,7vw,2rem); margin-bottom:12px; }
+  .section-head p{ color:rgba(33,43,52,0.66); font-size:0.98rem; }
+
+  /* PM band */
+  .pm-band{ background:var(--navy-dk); color:var(--white); position:relative; overflow:hidden; }
+  .pm-band::before{ content:""; position:absolute; inset:0; background:radial-gradient(ellipse 90% 60% at 100% 100%, rgba(198,166,103,0.14), transparent 65%); }
+  .pm-grid{ position:relative; display:flex; flex-direction:column; gap:28px; }
+  .pm-grid h2{ color:var(--white); font-size:clamp(1.6rem,7vw,2.1rem); margin-bottom:14px; }
+  .pm-grid p{ color:rgba(255,255,255,0.68); margin-bottom:12px; }
+  .pm-list{ display:flex; flex-direction:column; gap:14px; margin-top:18px; }
+  .pm-list li{ display:flex; gap:12px; align-items:flex-start; list-style:none; font-size:0.9rem; color:rgba(255,255,255,0.82);}
+  .pm-list svg{ width:16px; height:16px; color:var(--gold-lt); flex-shrink:0; margin-top:2px; }
+  .pm-visual{ border:1px solid var(--line-lt); padding:22px; background:rgba(255,255,255,0.03); border-radius:var(--r); }
+  .pm-row{ display:flex; flex-direction:column; gap:2px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-family:'IBM Plex Mono', monospace; font-size:0.76rem;}
+  .pm-row:last-child{ border-bottom:none; }
+  .pm-row .old{ color:rgba(255,255,255,0.4); text-decoration:line-through; }
+  .pm-row .new{ color:var(--gold-lt); }
+
+  /* about */
+  .about-grid{ display:flex; flex-direction:column; gap:24px; }
+  .about-copy p{ margin-bottom:14px; color:rgba(33,43,52,0.76); font-size:0.96rem; }
+  .trade-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+  .trade-tags span{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.03em; border:1px solid var(--line); padding:8px 12px; text-transform:uppercase; color:var(--navy); background:var(--white); border-radius:20px; transition:all .2s; }
+  .trade-tags span:hover{ border-color:var(--gold); color:var(--navy-dk); background:var(--gray-hi); }
+
+  /* process steps */
+  .steps{ display:flex; flex-direction:column; gap:26px; }
+  .step{ display:flex; gap:16px; align-items:flex-start; }
+  .step .idx{
+    width:44px; height:44px; border-radius:50%; background:var(--navy); color:var(--gold-lt); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-family:'Oswald', sans-serif; font-size:1rem;
+  }
+  .step h3{ font-size:0.96rem; margin-bottom:5px; }
+  .step p{ font-size:0.86rem; color:rgba(33,43,52,0.62); }
+
+  /* services - expandable cards */
+  .svc-grid{ display:flex; flex-direction:column; gap:12px; }
+  .svc-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--r); overflow:hidden;
+  }
+  .svc-head{ width:100%; display:flex; align-items:center; gap:14px; padding:18px; background:none; border:0; text-align:left; cursor:pointer; }
+  .svc-icon{ width:34px; height:34px; color:var(--navy); flex-shrink:0; }
+  .svc-head h3{ font-size:0.98rem; flex:1; }
+  .svc-head .chev{ width:18px; height:18px; color:var(--navy); transition:transform .25s; flex-shrink:0; }
+  .svc-card.open .chev{ transform:rotate(180deg); }
+  .svc-body{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+  .svc-card.open .svc-body{ max-height:200px; }
+  .svc-body-in{ padding:0 18px 18px 66px; font-size:0.88rem; color:rgba(33,43,52,0.68); }
+
+  /* gallery */
+  .gal-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  .gal-grid button{ padding:0; border:0; background:none; cursor:pointer; overflow:hidden; border-radius:10px; aspect-ratio:1/1; position:relative; }
+  .gal-grid button:first-child{ grid-column:1/-1; aspect-ratio:16/10; }
+  .gal-grid img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .gal-grid button:active img{ transform:scale(1.05); }
+
+  /* before/after transformation sliders */
+  .transform-grid{ display:flex; flex-direction:column; gap:26px; }
+  .ba{
+    position:relative; aspect-ratio:4/3; border-radius:14px; overflow:hidden;
+    box-shadow:0 10px 30px rgba(19,28,36,0.14); touch-action:pan-y; background:var(--navy-dker);
+  }
+  .ba img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; user-select:none; -webkit-user-drag:none; }
+  .ba .ba-after{ clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
+  .ba-divider{
+    position:absolute; top:0; bottom:0; left:var(--pos, 50%); width:2px;
+    background:var(--gold-lt); transform:translateX(-1px); pointer-events:none;
+    box-shadow:0 0 10px rgba(198,166,103,0.7);
+  }
+  .ba-handle{
+    position:absolute; top:50%; left:var(--pos, 50%); transform:translate(-50%,-50%);
+    width:42px; height:42px; border-radius:50%; background:var(--white);
+    display:flex; align-items:center; justify-content:center; gap:2px;
+    box-shadow:0 6px 18px rgba(19,28,36,0.35); pointer-events:none; color:var(--navy);
+  }
+  .ba-handle svg{ width:14px; height:14px; }
+  .ba input[type="range"]{
+    position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:ew-resize; -webkit-appearance:none; appearance:none;
+  }
+  .ba input[type="range"]::-webkit-slider-thumb{ -webkit-appearance:none; width:100%; height:100%; background:transparent; }
+  .ba input[type="range"]::-moz-range-thumb{ width:42px; height:42px; background:transparent; border:none; }
+  .ba input[type="range"]::-moz-range-track{ background:transparent; }
+  .ba-tag{
+    position:absolute; top:12px; font-family:'IBM Plex Mono', monospace; font-size:0.64rem; letter-spacing:0.08em;
+    text-transform:uppercase; padding:5px 11px; border-radius:20px; background:rgba(19,28,36,0.68); color:var(--white);
+    backdrop-filter:blur(4px); pointer-events:none;
+  }
+  .ba-tag.before{ left:12px; } .ba-tag.after{ right:12px; }
+  .ba-caption{ margin-top:12px; text-align:center; }
+  .ba-caption .t{ font-family:'Oswald', sans-serif; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.02em; color:var(--navy); }
+  .ba-caption .d{ font-size:0.84rem; color:rgba(33,43,52,0.6); margin-top:2px; }
+
+  .lightbox{ position:fixed; inset:0; z-index:100; background:rgba(19,28,36,0.94); display:none; align-items:center; justify-content:center; padding:24px; }
+  .lightbox.open{ display:flex; }
+  .lightbox img{ max-width:100%; max-height:80vh; border-radius:10px; }
+  .lightbox-close{ position:absolute; top:20px; right:20px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid var(--line-lt); color:var(--white); font-size:1.2rem; cursor:pointer; }
+
+  /* testimonial carousel */
+  .quote-block{ background:var(--navy-dk); color:var(--white); padding:52px 0; position:relative; overflow:hidden;}
+  .quote-block::before{ content:""; position:absolute; inset:0; background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(198,166,103,0.14), transparent 70%);}
+  .quote-mark{ color:var(--gold-lt); font-family:'Oswald',sans-serif; font-size:2.6rem; line-height:1; }
+  blockquote{ font-family:'Oswald', sans-serif; font-size:clamp(1.1rem,4.6vw,1.5rem); font-weight:500; text-transform:none; margin:12px 0 18px; position:relative; }
+  cite{ font-style:normal; font-family:'IBM Plex Mono', monospace; font-size:0.74rem; color:rgba(255,255,255,0.55); display:block; }
+  .t-source{ display:inline-block; margin-top:6px; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-lt); border:1px solid rgba(198,166,103,0.35); padding:4px 10px; border-radius:20px; }
+  .t-wrap{ position:relative; max-width:640px; margin:0 auto; text-align:center; }
+  .t-track{ display:flex; transition:transform .5s ease; }
+  .t-slide{ flex:0 0 100%; padding:0 8px; }
+  .t-dots{ display:flex; justify-content:center; gap:9px; margin-top:26px; }
+  .t-dots button{ width:8px; height:8px; border-radius:50%; border:0; background:rgba(255,255,255,0.28); cursor:pointer; padding:0; transition:all .25s; }
+  .t-dots button.active{ background:var(--gold-lt); width:22px; border-radius:6px; }
+  .t-arrows{ display:none; }
+  @media (min-width:640px){
+    .t-arrows{ display:flex; }
+    .t-arrows button{ position:absolute; top:50%; transform:translateY(-50%); width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid var(--line-lt); color:var(--white); cursor:pointer; display:flex; align-items:center; justify-content:center; }
+    .t-arrows .prev{ left:-50px; } .t-arrows .next{ right:-50px; }
+    .t-arrows button:hover{ background:rgba(255,255,255,0.16); }
+    .t-arrows svg{ width:16px; height:16px; }
+  }
+
+  /* benefits */
+  .benefit-grid{ display:flex; flex-direction:column; gap:18px; }
+  .benefit{ border-left:3px solid var(--gold); padding-left:14px; }
+  .benefit h3{ font-size:0.94rem; margin-bottom:6px; }
+  .benefit p{ font-size:0.88rem; color:rgba(33,43,52,0.62); }
+
+  /* contact */
+  .contact-band{ background:var(--navy); color:var(--white); position:relative; overflow:hidden; }
+  .contact-band::before{ content:""; position:absolute; inset:0; background:radial-gradient(ellipse 90% 60% at 90% 100%, rgba(198,166,103,0.16), transparent 65%);}
+  .contact-grid{ position:relative; display:flex; flex-direction:column; gap:28px; }
+  .contact-grid h2{ color:var(--white); font-size:clamp(1.6rem,7vw,2rem); margin-bottom:14px; }
+  .contact-grid p{ color:rgba(255,255,255,0.7); margin-bottom:22px; }
+  .contact-list{ display:flex; flex-direction:column; gap:14px; }
+  .contact-list a{ display:flex; align-items:center; gap:12px; font-family:'IBM Plex Mono', monospace; font-size:0.86rem; border-bottom:1px solid rgba(255,255,255,0.14); padding-bottom:12px; transition:color .2s; }
+  .contact-list a:hover{ color:var(--gold-lt); }
+  .contact-list .k{ color:rgba(255,255,255,0.5); font-size:0.66rem; text-transform:uppercase; letter-spacing:0.08em; width:58px; flex-shrink:0;}
+
+  footer{ background:var(--navy-dker); color:rgba(255,255,255,0.5); padding:26px 0 90px; }
+  .foot-inner{ display:flex; flex-direction:column; align-items:flex-start; gap:14px; font-size:0.78rem; }
+  .foot-inner a:hover{ color:var(--white); }
+  .foot-links{ display:flex; gap:18px; }
+  .foot-logo{ height:20px; opacity:0.8; }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in-view{ opacity:1; transform:none; }
+
+  /* ---------- tablet / desktop enhancement layer ---------- */
+  @media (min-width:640px){
+    .stat-grid{ grid-template-columns:repeat(4,1fr); }
+    .gal-grid{ grid-template-columns:repeat(3,1fr); }
+    .gal-grid button:first-child{ grid-column:span 2; aspect-ratio:1/1; }
+  }
+  @media (min-width:768px){
+    body{ padding-bottom:0; }
+    .mobile-bar{ display:none; }
+    .btn-row{ flex-direction:row; }
+    .trust-row{ flex-direction:row; flex-wrap:wrap; gap:22px; }
+    .about-grid, .pm-grid, .contact-grid{ flex-direction:row; align-items:center; gap:56px; }
+    .about-grid > *, .pm-grid > *, .contact-grid > *{ flex:1; }
+    .steps{ flex-direction:row; }
+    .step{ flex-direction:column; }
+    .svc-grid{ display:grid; grid-template-columns:repeat(2,1fr); }
+    .foot-inner{ flex-direction:row; align-items:center; justify-content:space-between; width:100%; }
+  }
+  @media (min-width:960px){
+    nav ul{ list-style:none; display:flex; gap:32px; }
+    nav a{ color:rgba(255,255,255,0.78); font-size:0.85rem; letter-spacing:0.02em; font-weight:500; transition:color .2s; position:relative; }
+    nav a::after{ content:""; position:absolute; left:0; bottom:-6px; width:0; height:1px; background:var(--gold-lt); transition:width .25s; }
+    nav a:hover{ color:var(--white); } nav a:hover::after{ width:100%; }
+    header .nav-cta{ display:inline-flex; align-items:center; gap:8px; background:linear-gradient(120deg, var(--gold), var(--gold-lt)); color:var(--navy-dker); padding:10px 20px; font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.05em; text-transform:uppercase; border-radius:8px; font-weight:700; }
+    .burger{ display:none; }
+    .nav-inner{ height:78px; }
+    .brand img{ height:36px; }
+    .hero{ padding:88px 0 70px; }
+    .hero-grid{ flex-direction:row-reverse; align-items:center; gap:56px; }
+    .hero-grid > div:last-child{ flex:0.85; } .hero-grid > div:first-child{ flex:1.15; }
+    .section-head{ max-width:640px; }
+    .svc-grid{ grid-template-columns:repeat(3,1fr); }
+  }
+  @media (hover:hover) and (min-width:960px){
+    .svc-card:hover{ box-shadow:0 10px 30px rgba(44,62,80,0.1); transform:translateY(-2px); }
+    .svc-card{ transition:all .25s; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .gal-grid img, .ticker-track, .grad-text{ animation:none; transition:none; }
+  }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="p-1 sticky top-0 z-20">
-    <div class="container mx-auto flex items-center justify-end">
-        <label for="menu-toggle" class="hamburger md:hidden mr-2">
-            <div></div><div></div><div></div>
-        </label>
-        <a href="https://rocpropertysolutions.com/links" class="cta-button mr-2 md:mr-4 text-sm" target="_blank">View Our Links Page for More Services</a>
-        <input type="checkbox" id="menu-toggle" class="hidden">
-        <ul id="menu" class="flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-4">
-            <li><a href="#home" class="nav-link text-sm">Home</a></li>
-            <li><a href="#about" class="nav-link text-sm">About</a></li>
-            <li><a href="#services" class="nav-link text-sm">Services</a></li>
-            <li><a href="#gallery" class="nav-link text-sm">Gallery</a></li>
-            <li><a href="#contact" class="nav-link text-sm">Contact</a></li>
-        </ul>
+
+<header>
+  <div class="wrap nav-inner">
+    <a href="#home" class="brand"><img src="https://rocpropertysolutions.com/ROC-Logo-Optimized.png" alt="ROC Property Solutions"></a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://rocpropertysolutions.com/estimate" class="nav-cta">Free Estimate</a>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#process">How It Works</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="https://rocpropertysolutions.com/estimate" class="nav-cta btn btn-primary">Free Estimate</a>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Remodels</span><span>Unit Turns</span><span>Fencing</span><span>Interior Finishes</span><span>Flooring &amp; Tile</span><span>Landscaping</span><span>Cleaning</span>
+    <span>Remodels</span><span>Unit Turns</span><span>Fencing</span><span>Interior Finishes</span><span>Flooring &amp; Tile</span><span>Landscaping</span><span>Cleaning</span>
+  </div>
+</div>
+
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow" style="color:rgba(255,255,255,0.55);">Western Washington &mdash; Multi-Trade Property Services</p>
+      <h1>Stop coordinating <span class="grad-text">five vendors.</span> Call one crew.</h1>
+      <p class="lead">Remodels, unit turns, and property maintenance across every trade &mdash; scheduled, sequenced, and delivered as one job. One point of contact, one invoice, one team accountable for the result.</p>
+      <div class="btn-row">
+        <a href="https://rocpropertysolutions.com/estimate" class="btn btn-primary">Get a Free Estimate</a>
+        <a href="#gallery" class="btn btn-ghost">See Our Work</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Licensed &amp; Insured</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>One Crew, Every Trade</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Homeowners, PMs &amp; Builders</div>
+      </div>
     </div>
-</nav>
+    <div>
+      <div class="hero-photo" id="heroPhoto">
+        <img src="https://rocpropertysolutions.com/04720b08-c6df-47c5-af27-76dc323ee3b3.png" alt="Recent ROC Property Solutions project">
+        <div class="hero-badge"><div class="n">1</div><div class="l">Point of Contact</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
- <!-- Large Image Section -->
-    <section class="py-2">
-        <div class="container mx-auto px-4">
-            <img src="ROC-Logo-Optimized.png" alt="Large Hero Image" class="large-image">
+<div class="stat-strip">
+  <div class="wrap stat-grid">
+    <div class="stat"><div class="num" data-count="6">0</div><div class="lbl">Trades In-House</div></div>
+    <div class="stat"><div class="num" data-count="100" data-suffix="%">0%</div><div class="lbl">Licensed &amp; Insured</div></div>
+    <div class="stat"><div class="num" data-count="5" data-suffix=".0">0</div><div class="lbl">Client Rating</div></div>
+    <div class="stat"><div class="num" data-count="1">0</div><div class="lbl">Point of Contact</div></div>
+  </div>
+</div>
+
+<section class="pm-band">
+  <div class="wrap pm-grid">
+    <div class="reveal">
+      <p class="eyebrow" style="color:rgba(255,255,255,0.5);">Built for Property Managers</p>
+      <h2 style="margin-top:12px;">One schedule instead of five</h2>
+      <p>Coordinating separate vendors for turns, repairs, and maintenance eats hours and multiplies risk every time a trade misses a window. ROC replaces that with a single, accountable crew.</p>
+      <ul class="pm-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>One point of contact for every trade on the job</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Trades sequenced internally, not left to chance</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>One invoice, one team accountable for the result</li>
+      </ul>
+    </div>
+    <div class="pm-visual reveal">
+      <p class="mono" style="font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:4px;">Coordinating a unit turn</p>
+      <div class="pm-row"><span class="old">Call cleaning vendor</span><span class="new">Handled in-house</span></div>
+      <div class="pm-row"><span class="old">Call repair vendor</span><span class="new">Handled in-house</span></div>
+      <div class="pm-row"><span class="old">Call paint crew</span><span class="new">Handled in-house</span></div>
+      <div class="pm-row"><span class="old">Chase 3 separate invoices</span><span class="new">One invoice</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <p class="eyebrow">01 / About</p>
+      <h2 style="margin-top:12px;">Every trade, run like one operation.</h2>
+    </div>
+    <div class="about-copy reveal">
+      <p>ROC Property Solutions serves homeowners, property managers, and builders across Western Washington. Instead of juggling separate crews for every job, our clients call one team &mdash; and we handle the coordination behind it.</p>
+      <p>We bring the same standard of professionalism and attention to detail to every project, from a single-day repair to a full unit turn on a tight deadline.</p>
+      <div class="trade-tags">
+        <span>Remodels</span><span>Unit Turns</span><span>Fencing &amp; Decks</span><span>Interior Finishes</span>
+        <span>Flooring &amp; Tile</span><span>Painting &amp; Drywall</span><span>Landscaping</span><span>Cleaning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">02 / How It Works</p>
+      <h2 style="margin-top:12px;">From request to sign-off</h2>
+      <p>The coordination happens on our side, not yours.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="idx">1</div><div><h3>Request &amp; Walkthrough</h3><p>Tell us what the property needs. We scope the full job, every trade included.</p></div></div>
+      <div class="step"><div class="idx">2</div><div><h3>One Schedule</h3><p>We sequence every trade internally &mdash; no waiting on separate vendors to sync up.</p></div></div>
+      <div class="step"><div class="idx">3</div><div><h3>Trades Execute</h3><p>Our crew moves through the job in order, tracked start to finish.</p></div></div>
+      <div class="step"><div class="idx">4</div><div><h3>Sign-Off</h3><p>One walkthrough, one invoice, one team accountable for the result.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">03 / Services</p>
+      <h2 style="margin-top:12px;">What we handle</h2>
+      <p>Tap a service for details. Core trades, all in-house.</p>
+    </div>
+    <div class="svc-grid reveal">
+
+      <div class="svc-card">
+        <button class="svc-head" aria-expanded="false">
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21h18M5 21V9l7-6 7 6v12M9 21v-6h6v6"/></svg>
+          <h3>Remodels</h3>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="svc-body"><div class="svc-body-in">Kitchen and bath updates, flooring, painting, drywall, and trim carpentry that raise a property's value.</div></div>
+      </div>
+
+      <div class="svc-card">
+        <button class="svc-head" aria-expanded="false">
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 21V9l8-5 8 5v12M4 13h16M9 21v-5h6v5"/></svg>
+          <h3>Unit Turns</h3>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="svc-body"><div class="svc-body-in">Fast, coordinated turnarounds &mdash; cleaning, repairs, and inspection &mdash; to get units rent-ready.</div></div>
+      </div>
+
+      <div class="svc-card">
+        <button class="svc-head" aria-expanded="false">
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 21V10M4 10l4-7 4 7M12 21V10M12 10l4-7 4 7M20 21V10"/></svg>
+          <h3>Fencing &amp; Exterior</h3>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="svc-body"><div class="svc-body-in">Wood, vinyl, and metal fence installation and repair, plus deck, patio, and siding work.</div></div>
+      </div>
+
+      <div class="svc-card">
+        <button class="svc-head" aria-expanded="false">
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12a8 8 0 1116 0 8 8 0 01-16 0zM12 8v4l3 2"/></svg>
+          <h3>General Maintenance</h3>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="svc-body"><div class="svc-body-in">Caulking, pressure washing, seasonal upkeep, and minor plumbing or electrical repairs.</div></div>
+      </div>
+
+      <div class="svc-card">
+        <button class="svc-head" aria-expanded="false">
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+          <h3>Interior Finishes</h3>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="svc-body"><div class="svc-body-in">Flooring, tile, trim, and cabinetry &mdash; the detail work that finishes a space right.</div></div>
+      </div>
+
+      <div class="svc-card">
+        <button class="svc-head" aria-expanded="false">
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2v6M12 16v6M5 9l3 3-3 3M19 9l-3 3 3 3"/></svg>
+          <h3>Landscaping &amp; Cleaning</h3>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="svc-body"><div class="svc-body-in">Grounds upkeep and deep-clean services that keep a property presentation-ready year-round.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">04 / Gallery</p>
+      <h2 style="margin-top:12px;">Recent work</h2>
+      <p>Drag the slider to see the transformation. Tap a photo for a closer look.</p>
+    </div>
+
+    <div class="transform-grid reveal">
+      <div>
+        <div class="ba" style="--pos:50%">
+          <img class="ba-before" src="https://rocpropertysolutions.com/330_before.jpg" alt="Unit 330 before turn">
+          <img class="ba-after" src="https://rocpropertysolutions.com/330_after.jpg" alt="Unit 330 after turn">
+          <span class="ba-tag before">Before</span>
+          <span class="ba-tag after">After</span>
+          <div class="ba-divider"></div>
+          <div class="ba-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
         </div>
-    </section>
+        <div class="ba-caption"><div class="t">Unit 330 &mdash; Move-Out to Move-In Ready</div><div class="d">Full clear-out and flooring replacement for a fast unit turn.</div></div>
+      </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="py-8 text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-[#003087] mb-4">Your Trusted General Contractor in Western Washington</h2>
-            <p class="text-lg mb-6 max-w-2xl mx-auto">ROC Property Solutions delivers ROC-solid results for homeowners and property managers, specializing in remodels, unit turns, fencing, and home maintenance.</p>
-            <a href="/estimate" class="cta-button">Get a Free Estimate</a>
+      <div>
+        <div class="ba" style="--pos:50%">
+          <img class="ba-before" src="https://rocpropertysolutions.com/bathroom_before.jpg" alt="Bathroom before remodel">
+          <img class="ba-after" src="https://rocpropertysolutions.com/bathroom_after.jpg" alt="Bathroom after remodel">
+          <span class="ba-tag before">Before</span>
+          <span class="ba-tag after">After</span>
+          <div class="ba-divider"></div>
+          <div class="ba-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
         </div>
-    </section>
+        <div class="ba-caption"><div class="t">Bathroom Remodel</div><div class="d">New vanity, fixtures, and finishes throughout.</div></div>
+      </div>
+    </div>
 
+    <div class="gal-grid reveal" style="margin-top:22px;">
+      <button data-full="https://rocpropertysolutions.com/stairs.jpg"><img src="https://rocpropertysolutions.com/stairs.jpg" alt="Staircase refresh, detail view"></button>
+      <button data-full="https://rocpropertysolutions.com/stairs_2.jpg"><img src="https://rocpropertysolutions.com/stairs_2.jpg" alt="Staircase refresh, wide view"></button>
+    </div>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="py-8">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-[#003087] mb-8">About ROC Property Solutions</h2>
-            <p class="text-lg max-w-3xl mx-auto">At ROC Property Solutions, we’re your go-to contractor in Western Washington for all property needs. Our team brings expertise, professionalism, and a commitment to quality to every project, whether it’s a kitchen remodel, a unit turn for a rental property, or routine maintenance.</p>
-            <p class="text-lg max-w-3xl mx-auto mt-4">We work closely with homeowners and property managers to deliver results that last. Choose ROC Property Solutions for ROC-solid service you can trust.</p>
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<div class="quote-block">
+  <div class="wrap reveal">
+    <p class="eyebrow" style="color:rgba(255,255,255,0.5); justify-content:center;">What Clients Say</p>
+    <p class="mono" style="text-align:center; font-size:0.72rem; color:rgba(255,255,255,0.45); margin-top:8px;">5.0 rating &middot; 8 Google reviews &middot; HomeAdvisor verified</p>
+    <div class="t-wrap" style="margin-top:18px;">
+      <div class="t-arrows">
+        <button class="prev" id="tPrev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="next" id="tNext" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+      <div style="overflow:hidden;">
+        <div class="t-track" id="tTrack">
+          <div class="t-slide">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>The work was completed on time and the installation was perfect from start to finish.</blockquote>
+            <cite>Robert Kelly</cite>
+            <span class="t-source">Google Review</span>
+          </div>
+          <div class="t-slide">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>Manages several Seattle-area apartment complexes and has trusted Billie with 50+ projects — says he's far ahead of other contractors on fast, clear communication.</blockquote>
+            <cite>Shalabh Jain</cite>
+            <span class="t-source">Google Review</span>
+          </div>
+          <div class="t-slide">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>A six-year client who's worked with many general contractors says Billie is the best on workmanship, communication, and creative problem-solving.</blockquote>
+            <cite>Sung Yu</cite>
+            <span class="t-source">Google Review</span>
+          </div>
+          <div class="t-slide">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>This company goes above and beyond. On time, great prices, great results.</blockquote>
+            <cite>Isaac Schaefer</cite>
+            <span class="t-source">Google Review</span>
+          </div>
+          <div class="t-slide">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>His knowledge in everything home repair is unmatched and his prices are fair.</blockquote>
+            <cite>Bryan Hubbard</cite>
+            <span class="t-source">Google Review</span>
+          </div>
+          <div class="t-slide">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>Coordinated a full condo update long-distance, including new flooring and bathroom work, and said the team kept her updated daily throughout.</blockquote>
+            <cite>Kim Kelly</cite>
+            <span class="t-source">Google Review</span>
+          </div>
+          <div class="t-slide">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>A repeat client had the team dress up a staircase and calls them her go-to for anything around the house.</blockquote>
+            <cite>K B</cite>
+            <span class="t-source">Google Review</span>
+          </div>
+          <div class="t-slide">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>Got a flooring job done at a fair price, and appreciated the steady communication with tenants throughout the project.</blockquote>
+            <cite>Jovan P.</cite>
+            <span class="t-source">HomeAdvisor</span>
+          </div>
+          <div class="t-slide">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>Billie was a true pro, have used him for multiple projects now.</blockquote>
+            <cite>Kyle B.</cite>
+            <span class="t-source">HomeAdvisor</span>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="t-dots" id="tDots"></div>
+    </div>
+  </div>
+</div>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-[#003087] text-center mb-8">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Light to Medium Remodels -->
-                <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Light to Medium Remodels</h3>
-                    <p class="mb-4">A well-executed remodel enhances your home’s beauty, functionality, and value. Our team delivers high-quality upgrades tailored to your vision.</p>
-                    <h4 class="font-semibold mb-2">What’s Included</h4>
-                    <ul class="list-disc list-inside mb-4">
-                        <li>Kitchen and bathroom updates</li>
-                        <li>Flooring installation (hardwood, tile, laminate)</li>
-                        <li>Painting and drywall repair</li>
-                        <li>Trim and molding installation</li>
-                    </ul>
-                    <h4 class="font-semibold mb-2">Why It Matters</h4>
-                    <p>Remodels improve aesthetics, increase property value, and enhance comfort, making your space more enjoyable and marketable.</p>
-                </div>
-                <!-- Fencing and Exterior Improvements -->
-                <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Fencing and Exterior Improvements</h3>
-                    <p class="mb-4">Quality fencing and exterior upgrades boost curb appeal, security, and privacy for your property.</p>
-                    <h4 class="font-semibold mb-2">What’s Included</h4>
-                    <ul class="list-disc list-inside mb-4">
-                        <li>Fence installation and repair (wood, vinyl, metal)</li>
-                        <li>Deck and patio enhancements</li>
-                        <li>Exterior painting and siding repairs</li>
-                        <li>Landscaping improvements</li>
-                    </ul>
-                    <h4 class="font-semibold mb-2">Why It Matters</h4>
-                    <p>Exterior improvements protect your property from the elements, enhance safety, and create inviting outdoor spaces.</p>
-                </div>
-                <!-- Unit Turns -->
-                <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Unit Turns</h3>
-                    <p class="mb-4">Fast, efficient unit turns keep rental properties ready for new tenants, minimizing vacancy and maximizing value.</p>
-                    <h4 class="font-semibold mb-2">What’s Included</h4>
-                    <ul class="list-disc list-inside mb-4">
-                        <li>Deep cleaning and sanitization</li>
-                        <li>Painting and minor repairs</li>
-                        <li>Flooring and fixture updates</li>
-                        <li>Inspection and compliance checks</li>
-                    </ul>
-                    <h4 class="font-semibold mb-2">Why It Matters</h4>
-                    <p>Timely unit turns attract quality tenants, reduce downtime, and maintain your property’s marketability.</p>
-                </div>
-                <!-- General Home Maintenance -->
-                <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">General Home Maintenance</h3>
-                    <p class="mb-4">Regular maintenance prevents costly repairs and keeps your property safe, functional, and attractive.</p>
-                    <h4 class="font-semibold mb-2">What’s Included</h4>
-                    <ul class="list-disc list-inside mb-4">
-                        <li>Caulking and sealing</li>
-                        <li>Pressure washing (siding, decks, driveways)</li>
-                        <li>Minor plumbing and electrical repairs</li>
-                        <li>Seasonal upkeep (gutters, HVAC)</li>
-                    </ul>
-                    <h4 class="font-semibold mb-2">Why It Matters</h4>
-                    <p>Proactive maintenance extends the life of your property, improves safety, and preserves its value.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section>
+  <div class="wrap">
+    <p class="eyebrow reveal">05 / Why ROC</p>
+    <div class="benefit-grid reveal" style="margin-top:22px;">
+      <div class="benefit"><h3>Longevity</h3><p>Quality remodels and maintenance extend the life of your property's components.</p></div>
+      <div class="benefit"><h3>Safety</h3><p>Proper repairs and upkeep prevent hazards like leaks, electrical issues, or structural damage.</p></div>
+      <div class="benefit"><h3>Property Value</h3><p>Well-maintained, updated properties attract buyers and tenants and boost marketability.</p></div>
+      <div class="benefit"><h3>Peace of Mind</h3><p>One accountable team handles every project so you can focus on what matters.</p></div>
+    </div>
+  </div>
+</section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-[#003087] mb-8">Project Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="04720b08-c6df-47c5-af27-76dc323ee3b3.png" alt="Gallery Image 1"></div>
-                <div class="gallery-item"><img src="05eaf636-9702-4152-bfa1-722c77c0d0ed.png" alt="Gallery Image 2"></div>
-                <div class="gallery-item"><img src="14e9b1df-3030-43b3-92e0-311f6a986751.png" alt="Gallery Image 3"></div>
-                <div class="gallery-item"><img src="1d7c00a9-c31f-4b40-aafa-ed0b9d13cd9d.png" alt="Gallery Image 4"></div>
-                <div class="gallery-item"><img src="6640c245-3b82-46b1-bef3-1488628180fa.jpg" alt="Gallery Image 5"></div>
-            </div>
-            <p class="text-lg max-w-3xl mx-auto mt-6">Explore more of our work! Contact us to see additional projects or discuss your needs.</p>
-            <a href="/estimate" class="cta-button mt-4 inline-block">Get Started</a>
-        </div>
-    </section>
+<section class="contact-band" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow" style="color:rgba(255,255,255,0.5);">Get in touch</p>
+      <h2 style="margin-top:12px;">Ready to start your next project?</h2>
+      <p>Request a free estimate or reach out directly &mdash; one call covers every trade your property needs.</p>
+      <a href="https://rocpropertysolutions.com/estimate" class="btn btn-primary">Request a Free Estimate</a>
+    </div>
+    <div class="contact-list reveal">
+      <a href="tel:8887708762"><span class="k mono">Phone</span> 888-770-8762</a>
+      <a href="mailto:hello@rocpropertysolutions.com"><span class="k mono">Email</span> hello@rocpropertysolutions.com</a>
+      <a href="https://www.instagram.com/roc_cement_fencing" target="_blank" rel="noopener"><span class="k mono">Follow</span> Instagram</a>
+      <a href="https://g.co/kgs/C9nfpf3" target="_blank" rel="noopener"><span class="k mono">Reviews</span> Google</a>
+    </div>
+  </div>
+</section>
 
-    <!-- Benefits Section -->
-    <section id="benefits" class="py-16 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-[#003087] mb-8">Benefits of Choosing ROC Property Solutions</h2>
-            <p class="text-lg max-w-3xl mx-auto mb-6">Partnering with ROC Property Solutions ensures your property thrives. Our professional services deliver lasting results for homeowners and property managers alike.</p>
-            <ul class="list-disc list-inside max-w-3xl mx-auto text-lg">
-                <li><strong>Longevity</strong>: Quality remodels and maintenance extend the life of your property’s components.</li>
-                <li><strong>Safety</strong>: Proper repairs and upkeep prevent hazards like leaks, electrical issues, or structural damage.</li>
-                <li><strong>Property Value</strong>: Well-maintained and updated properties attract buyers and tenants, boosting marketability.</li>
-                <li><strong>Peace of Mind</strong>: Our reliable, detail-oriented team handles every project with care, so you can focus on what matters.</li>
-            </ul>
-        </div>
-    </section>
+<footer>
+  <div class="wrap foot-inner">
+    <img class="foot-logo" src="https://rocpropertysolutions.com/ROC-Logo-Optimized.png" alt="ROC Property Solutions">
+    <span>&copy; 2026 ROC Property Solutions. All rights reserved.</span>
+    <div class="foot-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-[#003087] mb-8">What Our Clients Say</h2>
-            <p class="text-lg max-w-3xl mx-auto mb-6">Our clients trust us to deliver ROC-solid results. See what they’re saying about our work!</p>
-            <div class="p-6 bg-white text-[#003087] rounded-lg shadow-md max-w-2xl mx-auto">
-                <p class="text-lg mb-4">“The work was completed on time and the installation was perfect from start to finish.”</p>
-                <p class="font-semibold">– Robert Kelly, <a href="https://g.co/kgs/akKnLsg" class="text-[#003087] underline" target="_blank">Google Review</a></p>
-            </div>
-        </div>
-    </section>
+<div class="mobile-bar">
+  <a class="call" href="tel:8887708762"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Call</a>
+  <a class="est" href="https://rocpropertysolutions.com/estimate">Free Estimate</a>
+</div>
 
-    <!-- Commitment Section -->
-    <section id="commitment" class="py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-[#003087] mb-8">Our ROC-Solid Commitment</h2>
-            <p class="text-lg max-w-3xl mx-auto mb-4">At ROC Property Solutions, we’re more than just contractors—we’re your partners in maintaining and enhancing your property. Our team is dedicated to delivering results that stand the test of time.</p>
-            <p class="text-lg max-w-3xl mx-auto">We take pride in our professionalism, reliability, and attention to detail, ensuring every project meets your expectations. Whether it’s a remodel, unit turn, or routine maintenance, we’re your go-to team in Western Washington.</p>
-        </div>
-    </section>
+<script>
+  // mobile menu
+  const burger = document.getElementById('burgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-[#003087] mb-8">Contact Us</h2>
-            <p class="text-lg max-w-3xl mx-auto mb-6">Ready to start your next project? Request a free estimate or reach out directly — we’re here to help!</p>
-            <div class="max-w-lg mx-auto">
-                <a href="/estimate" class="cta-button block text-center mb-6">Request a Free Estimate</a>
-                <div class="mt-6">
-                    <p class="text-lg mb-2">Email: <a href="mailto:hello@rocpropertysolutions.com" class="text-[#003087] underline">hello@rocpropertysolutions.com</a></p>
-                    <p class="text-lg mb-2">Phone: <a href="tel:888-770-8762" class="text-[#003087] underline">888-770-UROC</a></p>
-                    <p class="text-lg">Follow us:</p>
-                    <div class="flex justify-center space-x-4 mt-2">
-                        <a href="https://www.instagram.com/roc_cement_fencing" class="cta-button" target="_blank">Instagram</a>
-                        <a href="https://g.co/kgs/C9nfpf3" class="cta-button" target="_blank">Google</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    <!-- Footer -->
-    <footer class="bg-[#E6E6E6] text-[#003087] py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p>© 2025 ROC Property Solutions. All rights reserved.</p>
-            <ul class="flex justify-center space-x-4 mt-2">
-                <li><a href="#home" class="text-[#003087] hover:underline">Home</a></li>
-                <li><a href="#about" class="text-[#003087] hover:underline">About</a></li>
-                <li><a href="#services" class="text-[#003087] hover:underline">Services</a></li>
-                <li><a href="#gallery" class="text-[#003087] hover:underline">Gallery</a></li>
-                <li><a href="#contact" class="text-[#003087] hover:underline">Contact</a></li>
-                <li><a href="privacy-policy.html" class="text-[#003087] hover:underline">Privacy Policy</a></li>
-            </ul>
-            <div class="socials mt-4">
-                <a href="https://www.instagram.com/roc_cement_fencing?igsh=…" target="_blank" title="Follow us on Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://g.co/kgs/C9nfpf3" target="_blank" title="Find us on Google">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="https://rocpropertysolutions.com/" target="_blank" title="Visit our website">
-                    <i class="fas fa-globe"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+  // count-up stats
+  const statEls = document.querySelectorAll('.num[data-count]');
+  const statIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const isDecimal = target % 1 !== 0;
+      let start = null;
+      const dur = 1100;
+      function step(ts){
+        if(!start) start = ts;
+        const p = Math.min((ts - start) / dur, 1);
+        const val = target * p;
+        el.textContent = (isDecimal ? val.toFixed(1) : Math.round(val)) + suffix;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      statIo.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  statEls.forEach(el => statIo.observe(el));
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top">Back to Top</button>
+  // expandable service cards
+  document.querySelectorAll('.svc-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.svc-card');
+      const wasOpen = card.classList.contains('open');
+      document.querySelectorAll('.svc-card.open').forEach(c => { c.classList.remove('open'); c.querySelector('.svc-head').setAttribute('aria-expanded','false'); });
+      if(!wasOpen){ card.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=[YOUR_GA_TRACKING_ID]"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '[YOUR_GA_TRACKING_ID]');
-    </script>
+  // lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.gal-grid button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      lightboxImg.src = btn.dataset.full;
+      lightboxImg.alt = btn.querySelector('img').alt;
+      lightbox.classList.add('open');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('open'); });
 
-    <script>
-        // Show/hide Back to Top button + hide nav on scroll down
-        let lastScrollY = window.scrollY;
-        const nav = document.querySelector('nav');
-        window.onscroll = function() {
-            const currentScrollY = window.scrollY;
-            const button = document.getElementById('back-to-top');
+  // before/after sliders
+  document.querySelectorAll('.ba').forEach(ba => {
+    const range = ba.querySelector('input[type="range"]');
+    const setPos = v => ba.style.setProperty('--pos', v + '%');
+    setPos(range.value);
+    range.addEventListener('input', e => setPos(e.target.value));
+  });
 
-            // Back to top button
-            if (currentScrollY > 100) {
-                button.style.display = 'block';
-            } else {
-                button.style.display = 'none';
-            }
+  // testimonial carousel
+  const tTrack = document.getElementById('tTrack');
+  const tDotsWrap = document.getElementById('tDots');
+  const slides = tTrack.querySelectorAll('.t-slide');
+  let tIndex = 0;
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    if(i === 0) dot.classList.add('active');
+    dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    tDotsWrap.appendChild(dot);
+  });
+  function goTo(i){
+    tIndex = (i + slides.length) % slides.length;
+    tTrack.style.transform = `translateX(-${tIndex * 100}%)`;
+    tDotsWrap.querySelectorAll('button').forEach((d, di) => d.classList.toggle('active', di === tIndex));
+  }
+  document.getElementById('tPrev').addEventListener('click', () => goTo(tIndex - 1));
+  document.getElementById('tNext').addEventListener('click', () => goTo(tIndex + 1));
+  let tStartX = null;
+  tTrack.addEventListener('touchstart', e => { tStartX = e.touches[0].clientX; }, {passive:true});
+  tTrack.addEventListener('touchend', e => {
+    if(tStartX === null) return;
+    const dx = e.changedTouches[0].clientX - tStartX;
+    if(Math.abs(dx) > 40) goTo(tIndex + (dx < 0 ? 1 : -1));
+    tStartX = null;
+  });
+  if(slides.length > 1){
+    setInterval(() => goTo(tIndex + 1), 7000);
+  }
 
-            // Hide nav when scrolling down, show when scrolling up
-            if (currentScrollY > lastScrollY && currentScrollY > 60) {
-                nav.classList.add('nav-hidden');
-            } else {
-                nav.classList.remove('nav-hidden');
-            }
-            lastScrollY = currentScrollY;
-        };
+  // subtle desktop tilt on hero photo
+  const heroPhoto = document.getElementById('heroPhoto');
+  if(window.matchMedia('(hover:hover) and (min-width:960px)').matches){
+    heroPhoto.addEventListener('mousemove', (e) => {
+      const r = heroPhoto.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      heroPhoto.querySelector('img').style.transform = `scale(1.06) translate(${x * -10}px, ${y * -10}px)`;
+    });
+    heroPhoto.addEventListener('mouseleave', () => {
+      heroPhoto.querySelector('img').style.transform = 'scale(1) translate(0,0)';
+    });
+  }
+</script>
 
-        // Scroll to top when button is clicked
-        document.getElementById('back-to-top').onclick = function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-    </script>
 </body>
 </html>
