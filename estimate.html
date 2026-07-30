@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request Received | ROC Property Solutions</title>
+  <title>Request an Estimate | ROC Property Solutions</title>
   <link rel="icon" href="/links/favicon-dark.png" type="image/png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="/links/favicon-light.png" type="image/png" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="Your estimate request has been received. ROC Property Solutions will be in touch within 1 business day.">
+  <meta name="description" content="Request a free estimate from ROC Property Solutions. We specialize in remodeling, unit turns, painting, flooring, and more across the greater Puget Sound area.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
       --navy-dker: #131c24;
       --gold: #C6A667;
       --gold-lt: #DFC28E;
+      --gray: #E6E6E6;
       --gray-hi: #F4F4F4;
       --text: #212B34;
       --muted: #5b6672;
@@ -26,224 +27,588 @@
       --white: #ffffff;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Inter', sans-serif;
       background: var(--gray-hi);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
       -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.01em; }
+    h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.01em; }
 
+    /* HEADER */
     header {
       background: var(--navy-dark);
       padding: 18px 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       border-bottom: 1px solid rgba(255,255,255,0.14);
     }
-    header a { text-decoration: none; display: inline-block; }
-    header img { height: 30px; width: auto; }
 
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 18px 56px;
+    header a.logo-link { display: inline-flex; align-items:center; text-decoration: none; background: rgba(255,255,255,0.96); padding: 6px 14px; border-radius: 10px; }
+    header img { height: 30px; width: auto; display:block; }
+
+    header .back-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
     }
+    header .back-link:hover { color: var(--gold-lt); }
 
-    .card {
-      background: var(--white);
-      border-radius: 16px;
-      box-shadow: 0 16px 40px rgba(19,28,36,0.1);
-      border: 1px solid var(--border);
-      max-width: 480px;
-      width: 100%;
-      overflow: hidden;
+    /* PAGE TITLE */
+    .page-title {
       text-align: center;
-    }
-
-    .card-top {
-      background: linear-gradient(165deg, var(--navy-dark), var(--navy-dker));
-      padding: 40px 28px 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    .card-top::before{
-      content:""; position:absolute; inset:0;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(198,166,103,0.18), transparent 65%);
-      pointer-events:none;
-    }
-
-    .checkmark {
-      position: relative;
-      width: 64px; height: 64px;
-      background: linear-gradient(120deg, var(--gold), var(--gold-lt));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      animation: pop 0.45s cubic-bezier(.34,1.56,.64,1);
-      box-shadow: 0 10px 28px rgba(198,166,103,0.4);
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0.5); opacity: 0; }
-      70% { transform: scale(1.1); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .checkmark svg {
-      width: 30px; height: 30px;
-      stroke: var(--navy-dker); stroke-width: 3;
-      fill: none; stroke-linecap: round; stroke-linejoin: round;
-    }
-
-    .card-top h1 {
-      position: relative;
-      font-size: 1.7rem;
+      padding: 40px 20px 20px;
+      background: linear-gradient(180deg, var(--navy-dark), var(--navy-dker));
       color: var(--white);
-      margin-bottom: 12px;
     }
 
-    .card-top p {
-      position: relative;
-      font-size: 0.94rem;
-      color: rgba(255,255,255,0.72);
+    .page-title h1 {
+      font-size: clamp(1.7rem, 5vw, 2.3rem);
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+
+    .page-title p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 460px;
+      margin: 0 auto;
       line-height: 1.6;
     }
-    .card-top p strong { color: var(--gold-lt); }
 
-    .card-body { padding: 28px 28px 30px; }
+    /* TRUST BAR */
+    .trust-bar {
+      background: linear-gradient(120deg, var(--gold), var(--gold-lt));
+      padding: 12px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px 26px;
+      flex-wrap: wrap;
+    }
 
-    .what-next { text-align: left; margin-bottom: 22px; }
-
-    .what-next h2 {
+    .trust-bar span {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      color: var(--navy-dker);
+    }
+
+    .trust-bar span::before { content: '✓ '; }
+
+    /* MAIN LAYOUT */
+    .page-body {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 72px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* FORM CARD */
+    .form-card {
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(19,28,36,0.08);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .form-card-header {
+      background: var(--navy);
+      padding: 18px 24px;
+    }
+
+    .form-card-header h2 {
+      font-size: 0.95rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+
+    .form-card-header p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* FSM FORM OVERRIDES — visual only, no structural/logic changes */
+    .form-wrapper .fsm-webform-body {
+      width: 100% !important;
+      padding: 22px !important;
+      background: transparent !important;
+      margin: 0 !important;
+      display: block !important;
+    }
+
+    .form-wrapper table { width: 100%; }
+
+    .form-wrapper .fsm_wf_lbl {
+      font-family: 'Inter', sans-serif !important;
+      font-size: 0.82rem !important;
+      font-weight: 600 !important;
+      color: var(--muted) !important;
+      padding-right: 16px !important;
+      min-width: 120px !important;
+      padding-top: 11px;
+      vertical-align: top;
+    }
+
+    .form-wrapper .fsm_wf_inp { padding: 6px 0 !important; }
+
+    .form-wrapper .fsm_wf_inp input,
+    .form-wrapper .fsm_wf_inp select,
+    .form-wrapper .fsm_wf_inp textarea {
+      width: 100% !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 0.92rem !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 8px !important;
+      padding: 10px 12px !important;
+      background: var(--gray-hi) !important;
+      color: var(--text) !important;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-wrapper .fsm_wf_inp input:focus,
+    .form-wrapper .fsm_wf_inp select:focus,
+    .form-wrapper .fsm_wf_inp textarea:focus {
+      outline: none !important;
+      border-color: var(--navy) !important;
+      background: var(--white) !important;
+    }
+
+    .form-wrapper tr { border-bottom: 1px solid #f2f4f6; }
+    .form-wrapper tr:last-of-type { border-bottom: none; }
+
+    .form-wrapper .fsm_wf_btn {
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.04em !important;
+      text-transform: uppercase !important;
+      padding: 12px 26px !important;
+      border-radius: 8px !important;
+      border: none !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+    }
+
+    /* Retheme the submit/reset buttons to brand colors without touching the embed's inline attributes */
+    .form-wrapper input.fsm_wf_btn[type="submit"] {
+      background: linear-gradient(120deg, var(--gold), var(--gold-lt)) !important;
+      color: var(--navy-dker) !important;
+    }
+    .form-wrapper input.fsm_wf_btn[type="submit"]:hover { box-shadow: 0 8px 22px rgba(198,166,103,0.4) !important; }
+    .form-wrapper input.fsm_wf_btn[type="button"] {
+      background: var(--gray) !important;
+      color: var(--navy) !important;
+    }
+
+    .form-wrapper .fsm_wf_btns {
+      padding: 18px 0 6px !important;
+      display: flex !important;
+      justify-content: flex-end !important;
+      gap: 10px !important;
+    }
+
+    .multiselect-hint {
+      font-size: 0.73rem;
+      color: var(--muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+    .sidebar-card {
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(19,28,36,0.06);
+      border: 1px solid var(--border);
+      padding: 22px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
       color: var(--navy);
-      margin-bottom: 14px;
-      padding-bottom: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
       border-bottom: 2px solid var(--gold);
     }
 
-    .steps { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .process-steps { list-style: none; display: flex; flex-direction: column; gap: 14px; }
 
-    .steps li {
+    .process-steps li {
       display: flex;
       align-items: flex-start;
-      gap: 11px;
-      font-size: 0.88rem;
+      gap: 12px;
+      font-size: 0.87rem;
       color: var(--muted);
       line-height: 1.5;
     }
 
-    .step-dot {
+    .step-num {
       flex-shrink: 0;
-      width: 8px; height: 8px;
-      background: var(--gold);
-      border-radius: 50%;
-      margin-top: 6px;
-    }
-
-    hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
-
-    .actions { display: flex; flex-direction: column; gap: 10px; }
-
-    .btn-primary {
-      display: block;
+      width: 24px; height: 24px;
       background: var(--navy);
-      color: var(--white);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 10px;
-      transition: background 0.2s;
-      text-align: center;
+      color: var(--gold-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      margin-top: 1px;
     }
-    .btn-primary:hover { background: var(--navy-dark); }
 
-    .btn-secondary {
-      display: block;
-      background: transparent;
-      color: var(--muted);
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+
+    .contact-list li { font-size: 0.88rem; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+    .contact-list svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
+    .contact-list a { color: var(--navy); text-decoration: none; font-weight: 600; }
+    .contact-list a:hover { text-decoration: underline; }
+
+    .badge {
+      display: inline-block;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 11px 24px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      transition: border-color 0.2s, color 0.2s;
-      text-align: center;
+      color: var(--navy);
+      background: var(--gray);
+      border-radius: 20px;
+      padding: 6px 12px;
     }
-    .btn-secondary:hover { border-color: var(--navy); color: var(--navy); }
 
+    /* FOOTER */
     footer {
       background: var(--navy-dker);
-      padding: 20px 20px;
+      padding: 22px 20px;
       text-align: center;
     }
+
     footer p { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
     footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
     footer a:hover { color: #fff; }
 
-    @media (min-width: 600px){
+    /* RESPONSIVE — desktop enhancement */
+    @media (min-width: 720px) {
+      .page-body { grid-template-columns: 1fr 320px; gap: 32px; padding: 44px 24px 80px; }
       header { padding: 22px 32px; }
-      .card-top { padding: 44px 40px 36px; }
-      .card-body { padding: 32px 40px 36px; }
+      .page-title { padding: 48px 32px 26px; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="https://rocpropertysolutions.com">
+    <a href="https://rocpropertysolutions.com" class="logo-link">
       <img src="https://rocpropertysolutions.com/ROC-Logo-Optimized.png" alt="ROC Property Solutions">
     </a>
+    <a href="https://rocpropertysolutions.com/links/" class="back-link">&larr; All Links</a>
   </header>
 
-  <main>
-    <div class="card">
-      <div class="card-top">
-        <div class="checkmark">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  <div class="page-title">
+    <h1>Request a Free Estimate</h1>
+    <p>Tell us about your project and we'll be in touch within 1 business day to schedule a site visit.</p>
+  </div>
+
+  <div class="trust-bar">
+    <span>No obligation</span>
+    <span>Site visit included</span>
+    <span>Response within 1 business day</span>
+    <span>Serving greater Puget Sound</span>
+  </div>
+
+  <div class="page-body">
+
+    <!-- FORM -->
+    <div>
+      <div class="form-card">
+        <div class="form-card-header">
+          <h2>Estimate Request</h2>
+          <p>All fields marked * are required.</p>
         </div>
-        <h1>Request Received</h1>
-        <p>Thanks for reaching out. We'll review your request and be in touch within <strong>1 business day</strong>.</p>
-      </div>
-      <div class="card-body">
-        <div class="what-next">
-          <h2>What Happens Next</h2>
-          <ul class="steps">
-            <li><span class="step-dot"></span><span>We'll review your request and contact you to discuss your project.</span></li>
-            <li><span class="step-dot"></span><span>We'll schedule a free on-site visit to assess the scope of work.</span></li>
-            <li><span class="step-dot"></span><span>You'll receive a detailed written estimate with no obligation.</span></li>
-          </ul>
-        </div>
-        <hr>
-        <div class="actions">
-          <a href="https://rocpropertysolutions.com/links/" class="btn-primary">Back to Links</a>
-          <a href="https://rocpropertysolutions.com/estimate" class="btn-secondary">Submit Another Request</a>
+        <div class="form-wrapper">
+
+          <!-- PASTE FSM EMBED CODE BELOW THIS LINE -->
+          <style>
+          .fsm_wf_inp{
+              padding:10px;
+          }
+          .fsm_wf_inp input,select{
+            background-color:white;
+            border:#D9E3E8 solid 0.5px;
+            padding:8px;
+            width:100%;
+             font-family:Arial;
+             font-size:12px;
+              border-radius: 4px;
+              width: 240px;
+          }.fsm_wf_btn{
+              width: fit-content;    padding:8px 16px 8px 16px;
+              color:white;
+              float:right;
+              margin:2px;
+              border-radius:5px;
+              background-color:#089949;
+          }
+          .fsm_wf_btns{
+              padding-top:10px;
+              padding-right:5%;
+          }
+          .fsm-webform-body{
+              margin:auto;
+              padding:30px;
+              width:500px;
+              display:flex;
+              justify-content:center;
+              background-color:#FFFFFF;
+          }
+          .fsm_wf_lbl{
+              font-family:Arial;
+              font-size:12px;
+              color:#000000;
+              text-align:Left; 
+               min-width: 112px;
+               padding-right: 40px;
+          }
+          .fsm_wf_lbl p{
+               margin:0px !important;
+          }
+          .fsm_wf_lbl ol{
+               margin:0px !important;
+          }
+          </style>
+          <div id='fsmWebForm' class='fsm-webform-body'>
+           <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+           <META HTTP-EQUIV ='content-type' CONTENT='text/html;charset=UTF-8'>
+           <form name='FsmRequestForm' id = 'FsmRequestForm' accept-charset='UTF-8' enctype="multipart/form-data">
+           <table><tr style='display:none'>
+          <td><div class='fsm_wf_lbl'><label for='Summary'>Summary<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Summary' name = 'Summary' required= true value='Estimate Request'></input></div></td>
+          </tr> 
+          <tr>
+          <td><div class='fsm_wf_lbl'><label for='Contact_Firstname'>First Name<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Contact_Firstname' name = 'Contact_Firstname' required= true ></input></div></td>
+          </tr> 
+          <tr>
+          <td><div class='fsm_wf_lbl'><label for='Contact_Lastname'>Last Name<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Contact_Lastname' name = 'Contact_Lastname' required= true ></input></div></td>
+          </tr> 
+          <tr>
+          <td><div class='fsm_wf_lbl'><label for='Email'>Email<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Email' name = 'Email' required= true ftype='email'></input></div></td>
+          </tr> 
+          <tr>
+          <td><div class='fsm_wf_lbl'><label for='Phone'>Phone</label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Phone' name = 'Phone' ></input></div></td>
+          </tr> 
+          <tr>
+          <td><div class='fsm_wf_lbl'><label for='Service_Street_1'>Service Address<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Service_Street_1' name = 'Service_Street_1' required= true placeholder='Street address'></input></div></td>
+          </tr> 
+          <tr>
+          <td><div class='fsm_wf_lbl'><label for='Service_City'>City<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Service_City' name = 'Service_City' required= true ></input></div></td>
+          </tr> 
+          <tr style='display:none'>
+          <td><div class='fsm_wf_lbl'><label for='Service_State'>Service State<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Service_State' name = 'Service_State' required= true value='Washington'></input></div></td>
+          </tr> 
+          <tr>
+          <td><div class='fsm_wf_lbl'><label for='Service_Zip_Code'>Zip Code<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Service_Zip_Code' name = 'Service_Zip_Code' required= true ></input></div></td>
+          </tr> 
+          <tr style='display:none'>
+          <td><div class='fsm_wf_lbl'><label for='Billing_State'>Billing State<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><input type='text' id = 'Billing_State' name = 'Billing_State' required= true value='WA'></input></div></td>
+          </tr> 
+          <tr>
+          <td><div class='fsm_wf_lbl'><label for='Service_Type__C'>Service Type<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><select id='Service_Type__C' name='Service_Type__C' style='font-size:12px' required multiple size='5'>
+          <option value='Unit Turn / Make-Ready'>Unit Turn / Make-Ready</option>
+          <option value='General Repair / Handyman'>General Repair / Handyman</option>
+          <option value='Flooring'>Flooring</option>
+          <option value='Painting / Drywall'>Painting / Drywall</option>
+          <option value='Bathroom / Kitchen Remodel'>Bathroom / Kitchen Remodel</option>
+          <option value='Doors, Windows & Trim'>Doors, Windows &amp; Trim</option>
+          <option value='Plumbing / Electrical'>Plumbing / Electrical</option>
+          <option value='Deck / Fencing / Outdoor'>Deck / Fencing / Outdoor</option>
+          <option value='Demolition / Trash Out'>Demolition / Trash Out</option>
+          <option value='Other'>Other</option>
+          </select>
+          <div class='multiselect-hint'>Hold Ctrl (PC) or ⌘ (Mac) to select multiple</div>
+          </div></td>
+          </tr>
+          <tr>
+          <td><div class='fsm_wf_lbl'><label for='Project_Description__C'>Project Description</label></div></td>
+          <td><div class='fsm_wf_inp'><textarea id='Project_Description__C' name='Project_Description__C' maxlength='2000' rows='4' style='width:100%;font-family:Arial;font-size:12px;border:#D9E3E8 solid 0.5px;border-radius:4px;padding:8px;resize:vertical;' placeholder='Describe the work you need done — what, where, and any relevant details.'></textarea></div></td>
+          </tr> 
+          <tr style='display:none'>
+          <td><div class='fsm_wf_lbl'><label for='Territory'>Territory<span style='color:red;'>*</span></label></div></td>
+          <td><div class='fsm_wf_inp'><select id='Territory' name='Territory' style='font-size:12'>
+          <option value='37713000000344361'>ROC Property Solutions LLC</option>
+          </select></div></td>
+          </tr>
+          <tr><td colspan='2'><div style='display:flex;padding:12px 0 4px;'><div style='padding-right:8px;'><input type='checkbox' id='Privacy_Policy' name='Privacy_Policy' value='Privacy_Policy'></div>
+          <label class='fsm_wf_lbl' style='max-width:440px;' for='Privacy_Policy'><p style="max-width:100%; line-height:1.4; overflow-wrap:break-word; font-size:11px;"><span style="color:rgb(80,80,80)">By checking this box, I consent to receive text messages from ROC Property Solutions regarding my estimate request. Message and data rates may apply. Reply STOP at any time to opt out. We will never sell or share your phone number. </span><a href="https://rocpropertysolutions.com/links/privacy-policy.html" style="color:#089949; text-decoration:underline" target="_blank">Privacy Policy</a></p></label></div></td>
+          </tr>
+          </table>
+          <input style='display:none' type='text' id='fsmUniqueKey' value='' name='fsmUniqueKey'></input>
+          <div class='fsm_wf_btns'>
+           <input class='fsm_wf_btn' type='submit' text='Submit' name='Submit' value='Submit' style='background-color:#089949; color:#FFFFFF'></input>
+           <input class='fsm_wf_btn' type='button' text='Reset' name='Reset' value='Reset' style='background-color:#f9fafa; color:#55617A' onclick='onResetFsmWebform()'></input>
+           </div>
+           </form>
+           </div>
+           
+           <Script>
+          document.getElementById("fsmWebForm").addEventListener("submit", function(event) {
+              event.preventDefault();
+              const formData = new FormData(event.target);
+              var form = document.getElementById('FsmRequestForm');
+              var inputEles = form.getElementsByTagName("input");
+              for(let i=0;i<inputEles.length;i++){
+                  var ele = inputEles[i];
+                  if(ele.required && ele.value.trim() == '' && ele.labels[0]){
+                      alert('Enter a valid '+ele.labels[0].textContent.slice(0, -1));
+                      return;
+                  }
+              }
+              var selectEles = form.getElementsByTagName("select");
+              for(let i=0;i<selectEles.length;i++){
+                  var ele = selectEles[i];
+                  if(ele.value == '-None-'){
+                      if(ele.required && ele.labels[0]){
+                           alert('Enter a valid '+ele.labels[0].textContent.slice(0, -1));
+                           return;
+                      }
+                      else{
+                          formData.set(ele.id,'')
+                      }
+                   }
+              }
+              var multiSelectEles = form.querySelectorAll("select[multiple]");
+              for(let i=0;i<multiSelectEles.length;i++){
+                   var ele = multiSelectEles[i];
+                   var value = Array.from(ele.selectedOptions).map(option => option.value).join(";");
+                   formData.delete(ele.name);
+                   formData.set(ele.name,value);
+              }
+              var emailFld = form.querySelectorAll('[ftype=email]');
+              for (let i = 0; i < emailFld.length; i++){
+                  var emailVal = emailFld[i].value;
+                  if((emailVal=='')||(emailVal==null)){ continue; }
+                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                  if(!emailRegex.test(emailVal)){
+                     alert('Enter a valid mail Address');
+                     return false;
+                  }
+              }
+              formData.set('timeZoneOffset',new Date().getTimezoneOffset());
+              if(window && window.location && window.location.href){
+                formData.set('locationUrl',window.location.href);
+              }
+              form.getElementsByClassName("fsm_wf_btn").Submit.disabled=true;
+              fetch('https://fsm.zoho.com/fsm/v1/webforms/submit?fsmdigest=d46eb7812908b72829363c5e6a71f2d3ae11ea83926bc031fe0157a2737a983b3a348a9673c0df909a6decd87310bd0ebcf9f74d9733dd5561dd6bab515f6a6c', {
+                  method: 'POST',
+                  body: formData
+              })
+              .then(async function(response){
+                  form.getElementsByClassName("fsm_wf_btn").Submit.disabled=false;
+                  let responseObj = JSON.parse(await response.text());
+                  if(responseObj.status=="success"){
+                      window.location.href = 'https://rocpropertysolutions.com/estimate-thanks';
+                  }
+                  else{
+                    alert(responseObj.message || "Unable to submit form");
+                  }
+               })
+               .catch(err =>{
+                  form.getElementsByClassName("fsm_wf_btn").Submit.disabled=false;
+                  alert("Unable to submit form");
+               });
+          });
+          function onResetFsmWebform(){
+               let fsmform = document.getElementById('FsmRequestForm');
+               fsmform.reset();
+          }
+          </Script>
+          <!-- END FSM EMBED CODE -->
+
         </div>
       </div>
     </div>
-  </main>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-card">
+        <h3>What happens next</h3>
+        <ul class="process-steps">
+          <li>
+            <span class="step-num">1</span>
+            <span>We review your request and reach out within <strong>1 business day</strong>.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <span>We schedule a <strong>free on-site visit</strong> to assess the scope of work.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <span>You receive a <strong>detailed written estimate</strong> with no obligation.</span>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <span>Approve the estimate and we <strong>get to work</strong>.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Prefer to call?</h3>
+        <ul class="contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:8887708762">(888) 770-UROC</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <a href="mailto:hello@rocpropertysolutions.com">hello@rocpropertysolutions.com</a>
+          </li>
+        </ul>
+        <div class="badge">Licensed &middot; Bonded &middot; Insured</div>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Service area</h3>
+        <p style="font-size:0.88rem; color:var(--muted); line-height:1.6;">We serve the greater Puget Sound area including King &amp; Pierce County communities.</p>
+      </div>
+
+    </div>
+
+  </div>
 
   <footer>
-    <p>&copy; 2026 ROC Property Solutions LLC &nbsp;&middot;&nbsp; <a href="https://rocpropertysolutions.com/links/privacy-policy.html">Privacy Policy</a></p>
+    <p>&copy; 2026 ROC Property Solutions LLC &nbsp;&middot;&nbsp; <a href="https://rocpropertysolutions.com/links/privacy-policy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="https://rocpropertysolutions.com/links/">Links</a></p>
   </footer>
 
 </body>
