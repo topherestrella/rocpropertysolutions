@@ -1,52 +1,250 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Light Mode Favicon -->
-<link rel="icon" href="favicon-dark.png" type="image/png" media="(prefers-color-scheme: light)">
-<!-- Dark Mode Favicon -->
-<link rel="icon" href="favicon-light.png" type="image/png" media="(prefers-color-scheme: dark)">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ROC Property Solutions - Links</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Received | ROC Property Solutions</title>
+  <link rel="icon" href="/links/favicon-dark.png" type="image/png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="/links/favicon-light.png" type="image/png" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Your estimate request has been received. ROC Property Solutions will be in touch within 1 business day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #2C3E50;
+      --navy-dark: #1a252f;
+      --navy-dker: #131c24;
+      --gold: #C6A667;
+      --gold-lt: #DFC28E;
+      --gray-hi: #F4F4F4;
+      --text: #212B34;
+      --muted: #5b6672;
+      --border: #dde3e8;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-hi);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.01em; }
+
+    header {
+      background: var(--navy-dark);
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+    }
+    header a { text-decoration: none; display: inline-block; }
+    header img { height: 30px; width: auto; }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 18px 56px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(19,28,36,0.1);
+      border: 1px solid var(--border);
+      max-width: 480px;
+      width: 100%;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card-top {
+      background: linear-gradient(165deg, var(--navy-dark), var(--navy-dker));
+      padding: 40px 28px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-top::before{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(198,166,103,0.18), transparent 65%);
+      pointer-events:none;
+    }
+
+    .checkmark {
+      position: relative;
+      width: 64px; height: 64px;
+      background: linear-gradient(120deg, var(--gold), var(--gold-lt));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      animation: pop 0.45s cubic-bezier(.34,1.56,.64,1);
+      box-shadow: 0 10px 28px rgba(198,166,103,0.4);
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      70% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .checkmark svg {
+      width: 30px; height: 30px;
+      stroke: var(--navy-dker); stroke-width: 3;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .card-top h1 {
+      position: relative;
+      font-size: 1.7rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .card-top p {
+      position: relative;
+      font-size: 0.94rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.6;
+    }
+    .card-top p strong { color: var(--gold-lt); }
+
+    .card-body { padding: 28px 28px 30px; }
+
+    .what-next { text-align: left; margin-bottom: 22px; }
+
+    .what-next h2 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .step-dot {
+      flex-shrink: 0;
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 6px;
+    }
+
+    hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
+
+    .actions { display: flex; flex-direction: column; gap: 10px; }
+
+    .btn-primary {
+      display: block;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 10px;
+      transition: background 0.2s;
+      text-align: center;
+    }
+    .btn-primary:hover { background: var(--navy-dark); }
+
+    .btn-secondary {
+      display: block;
+      background: transparent;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 11px 24px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s, color 0.2s;
+      text-align: center;
+    }
+    .btn-secondary:hover { border-color: var(--navy); color: var(--navy); }
+
+    footer {
+      background: var(--navy-dker);
+      padding: 20px 20px;
+      text-align: center;
+    }
+    footer p { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+    footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (min-width: 600px){
+      header { padding: 22px 32px; }
+      .card-top { padding: 44px 40px 36px; }
+      .card-body { padding: 32px 40px 36px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="overlay"></div>
-  <div class="container">
-    <a href="https://rocpropertysolutions.com" target="_blank">
-      <img src="ROC-Logo-Optimized.png" alt="ROC Logo" class="logo"/>
+
+  <header>
+    <a href="https://rocpropertysolutions.com">
+      <img src="https://rocpropertysolutions.com/ROC-Logo-Optimized.png" alt="ROC Property Solutions">
     </a>
-    <p class="tagline">Fencing & General Contracting Solutions</p>
+  </header>
 
-    <a class="button" href="/estimate"><i class="fas fa-file-alt"></i> Request a Free Estimate</a>
-    <a class="button" href="tel:8887708762" target="_blank"><i class="fas fa-phone"></i> Call Us: (888) 770-UROC</a>
-    <a class="button" href="mailto:hello@rocpropertysolutions.com"><i class="fas fa-envelope"></i> Email Us</a>
-    <a class="button" href="https://forms.office.com/r/7fvxL79nak" target="_blank">
-   <i class="fas fa-tools"></i> Subcontractor Sign-Up
-</a>
+  <main>
+    <div class="card">
+      <div class="card-top">
+        <div class="checkmark">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h1>Request Received</h1>
+        <p>Thanks for reaching out. We'll review your request and be in touch within <strong>1 business day</strong>.</p>
+      </div>
+      <div class="card-body">
+        <div class="what-next">
+          <h2>What Happens Next</h2>
+          <ul class="steps">
+            <li><span class="step-dot"></span><span>We'll review your request and contact you to discuss your project.</span></li>
+            <li><span class="step-dot"></span><span>We'll schedule a free on-site visit to assess the scope of work.</span></li>
+            <li><span class="step-dot"></span><span>You'll receive a detailed written estimate with no obligation.</span></li>
+          </ul>
+        </div>
+        <hr>
+        <div class="actions">
+          <a href="https://rocpropertysolutions.com/links/" class="btn-primary">Back to Links</a>
+          <a href="https://rocpropertysolutions.com/estimate" class="btn-secondary">Submit Another Request</a>
+        </div>
+      </div>
+    </div>
+  </main>
 
+  <footer>
+    <p>&copy; 2026 ROC Property Solutions LLC &nbsp;&middot;&nbsp; <a href="https://rocpropertysolutions.com/links/privacy-policy.html">Privacy Policy</a></p>
+  </footer>
 
-    <div class="socials">
-  <a href="https://www.instagram.com/roc_cement_fencing?igsh=…" target="_blank">
-    <i class="fab fa-instagram"></i>
-  </a>
-
-  <!-- ADD THIS: Google “G” icon -->
-  <a href="https://g.co/kgs/C9nfpf3" target="_blank" title="Find us on Google">
-    <i class="fab fa-google"></i>
-  </a>
-
-  <a href="https://rocpropertysolutions.com/" target="_blank">
-    <i class="fas fa-globe"></i>
-  </a>
-</div>
-
-
-    <footer>© 2025 ROC Property Solutions LLC
-    <a href="privacy-policy.html">Privacy Policy & Terms</a>
-</footer>
-  </div>
 </body>
 </html>
