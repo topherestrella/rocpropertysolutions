@@ -481,76 +481,81 @@
            </div>
            
            <Script>
-          document.getElementById("fsmWebForm").addEventListener("submit", function(event) {
-              event.preventDefault();
-              const formData = new FormData(event.target);
-              var form = document.getElementById('FsmRequestForm');
-              var inputEles = form.getElementsByTagName("input");
-              for(let i=0;i<inputEles.length;i++){
-                  var ele = inputEles[i];
-                  if(ele.required && ele.value.trim() == '' && ele.labels[0]){
-                      alert('Enter a valid '+ele.labels[0].textContent.slice(0, -1));
-                      return;
-                  }
-              }
-              var selectEles = form.getElementsByTagName("select");
-              for(let i=0;i<selectEles.length;i++){
-                  var ele = selectEles[i];
-                  if(ele.value == '-None-'){
-                      if(ele.required && ele.labels[0]){
-                           alert('Enter a valid '+ele.labels[0].textContent.slice(0, -1));
-                           return;
-                      }
-                      else{
-                          formData.set(ele.id,'')
-                      }
-                   }
-              }
-              var multiSelectEles = form.querySelectorAll("select[multiple]");
-              for(let i=0;i<multiSelectEles.length;i++){
-                   var ele = multiSelectEles[i];
-                   var value = Array.from(ele.selectedOptions).map(option => option.value).join(";");
-                   formData.delete(ele.name);
-                   formData.set(ele.name,value);
-              }
-              var emailFld = form.querySelectorAll('[ftype=email]');
-              for (let i = 0; i < emailFld.length; i++){
-                  var emailVal = emailFld[i].value;
-                  if((emailVal=='')||(emailVal==null)){ continue; }
-                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                  if(!emailRegex.test(emailVal)){
-                     alert('Enter a valid mail Address');
-                     return false;
-                  }
-              }
-              formData.set('timeZoneOffset',new Date().getTimezoneOffset());
-              if(window && window.location && window.location.href){
-                formData.set('locationUrl',window.location.href);
-              }
-              form.getElementsByClassName("fsm_wf_btn").Submit.disabled=true;
-              fetch('https://fsm.zoho.com/fsm/v1/webforms/submit?fsmdigest=d46eb7812908b72829363c5e6a71f2d3ae11ea83926bc031fe0157a2737a983b3a348a9673c0df909a6decd87310bd0ebcf9f74d9733dd5561dd6bab515f6a6c', {
-                  method: 'POST',
-                  body: formData
-              })
-              .then(async function(response){
-                  form.getElementsByClassName("fsm_wf_btn").Submit.disabled=false;
-                  let responseObj = JSON.parse(await response.text());
-                  if(responseObj.status=="success"){
-                      window.location.href = 'https://rocpropertysolutions.com/estimate-thanks';
-                  }
-                  else{
-                    alert(responseObj.message || "Unable to submit form");
-                  }
-               })
-               .catch(err =>{
-                  form.getElementsByClassName("fsm_wf_btn").Submit.disabled=false;
-                  alert("Unable to submit form");
-               });
-          });
-          function onResetFsmWebform(){
-               let fsmform = document.getElementById('FsmRequestForm');
-               fsmform.reset();
-          }
+         <Script>
+document.getElementById("fsmWebForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var form = document.getElementById('FsmRequestForm');
+
+    var inputEles = form.getElementsByTagName("input");
+    for (let i = 0; i < inputEles.length; i++) {
+        var ele = inputEles[i];
+        if (ele.required && ele.type !== 'checkbox' && ele.value.trim() == '' && ele.labels[0]) {
+            alert('Enter a valid ' + ele.labels[0].textContent.slice(0, -1));
+            return;
+        }
+        if (ele.required && ele.type === 'checkbox' && !ele.checked && ele.labels[0]) {
+            alert('Please check the box to continue.');
+            return;
+        }
+    }
+
+    var emailVal = document.getElementById('Email').value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailVal)) {
+        alert('Enter a valid email address');
+        return;
+    }
+
+    var serviceTypeSelect = document.getElementById('Service_Type__C');
+    var serviceTypeValue = Array.from(serviceTypeSelect.selectedOptions).map(o => o.value).join(', ');
+    if (!serviceTypeValue) {
+        alert('Please select at least one Service Type');
+        return;
+    }
+
+    var payload = {
+        firstName: document.getElementById('Contact_Firstname').value,
+        lastName: document.getElementById('Contact_Lastname').value,
+        email: emailVal,
+        phone: document.getElementById('Phone').value,
+        address: document.getElementById('Service_Street_1').value,
+        city: document.getElementById('Service_City').value,
+        zip: document.getElementById('Service_Zip_Code').value,
+        serviceType: serviceTypeValue,
+        description: document.getElementById('Project_Description__C').value,
+        smsConsent: document.getElementById('Privacy_Policy').checked
+    };
+
+    var submitBtn = form.querySelector('.fsm_wf_btn[type="submit"]');
+    submitBtn.disabled = true;
+
+    fetch('https://flow.zoho.com/886691553/flow/webhook/incoming?zapikey=1001.946f34c18eaecba03bc2d47268504d6c.7666789e62350859c711af2aeb8f4011&isdebug=false', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(async function(response) {
+        submitBtn.disabled = false;
+        let responseObj = await response.json();
+        if (responseObj.status === "success") {
+            window.location.href = 'https://rocpropertysolutions.com/estimate-thanks';
+        } else {
+            alert(responseObj.message || "Unable to submit form");
+        }
+    })
+    .catch(err => {
+        submitBtn.disabled = false;
+        alert("Unable to submit form");
+    });
+});
+
+function onResetFsmWebform(){
+    let fsmform = document.getElementById('FsmRequestForm');
+    fsmform.reset();
+}
+</Script>
+<!-- END FSM EMBED CODE -->
           </Script>
           <!-- END FSM EMBED CODE -->
 
